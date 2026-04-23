@@ -473,6 +473,7 @@
     .rates-header .eyebrow::before { background: var(--gold2); }
     .rates-sub { font-size: 13px; font-weight: 300; color: rgba(245,240,232,0.4); }
     .rates-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-top: 64px; }
+    .rates-grid-2col { grid-template-columns: repeat(2,1fr); max-width: 720px; margin: 64px auto 0; }
     .rate-card {
       background: var(--navy); padding: 52px 40px; text-align: center;
       transition: background 300ms var(--ease), transform 300ms var(--ease-spring);
@@ -637,7 +638,7 @@
       .exp-grid { grid-template-columns: 1fr; gap: 1px; }
 
       .rates { padding: 64px 24px; }
-      .rates-grid { grid-template-columns: 1fr; }
+      .rates-grid, .rates-grid-2col { grid-template-columns: 1fr; max-width: 100%; }
 
       .booking { padding: 64px 24px; }
       .booking-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -903,7 +904,7 @@
         <h2 class="h2">Simple, <em>transparent</em></h2>
         <p class="rates-sub">Captain included. No hidden fees. Up to 12 guests.</p>
       </div>
-      <div class="rates-grid" style="grid-template-columns: repeat(2,1fr); max-width:720px; margin:64px auto 0;">
+      <div class="rates-grid rates-grid-2col">
         <div class="rate-card reveal d1">
           <div class="rate-tag">Charter</div>
           <div class="rate-name">4 Hours</div>
