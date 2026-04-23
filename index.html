@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pienezza Yacht — Private Charter · Miami</title>
+  <meta name="description" content="Private yacht charter in Miami. Up to 12 guests. Biscayne Bay, the Sandbar, and beyond. Est. MMXXIV.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:   #F5F0E8;
+      --cream2:  #EDE6D6;
+      --cream3:  #E5DCC8;
+      --navy:    #0E1C36;
+      --navy2:   #1A2D50;
+      --gold:    #B8922A;
+      --gold2:   #C9A43C;
+      --dark:    #080F1A;
+      --white:   #FFFFFF;
+      --ease:    cubic-bezier(0.65, 0, 0.35, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 0 56px;
+      height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 500ms var(--ease), border-color 500ms var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+    nav.solid {
+      background: rgba(245, 240, 232, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom-color: rgba(14, 28, 54, 0.1);
+    }
+
+    /* ─── LOGO PROPUESTA 04 ─── */
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+
+    /* Nav anchor — thin stroke, white over hero, navy when scrolled */
+    .nav-anchor { width: 32px; height: 46px; flex-shrink: 0; }
+    .nav-anchor .a-stroke { stroke: rgba(255,255,255,0.95); transition: stroke 450ms var(--ease); }
+    nav.solid .nav-anchor .a-stroke { stroke: #0E1C36; }
+
+    /* Vertical divider */
+    .logo-div {
+      width: 1px; height: 40px; flex-shrink: 0;
+      background: rgba(255,255,255,0.3);
+      transition: background 450ms var(--ease);
+    }
+    nav.solid .logo-div { background: rgba(14,28,54,0.2); }
+
+    /* Text lockup */
+    .logo-text { display: flex; flex-direction: column; gap: 4px; }
+    .logo-pienezza {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 400; line-height: 1;
+      color: var(--white); letter-spacing: 0.01em;
+      transition: color 450ms var(--ease);
+    }
+    nav.solid .logo-pienezza { color: #0E1C36; }
+
+    .logo-row2 { display: flex; align-items: center; gap: 7px; }
+    .logo-yacht {
+      font-size: 8px; font-weight: 600; letter-spacing: 0.32em;
+      color: rgba(255,255,255,0.65); text-transform: uppercase;
+      transition: color 450ms var(--ease);
+    }
+    nav.solid .logo-yacht { color: rgba(14,28,54,0.5); }
+
+    .logo-dash { width: 18px; height: 1px; background: #B8922A; flex-shrink: 0; }
+
+    .logo-est {
+      font-size: 8px; font-weight: 500; letter-spacing: 0.22em;
+      color: #B8922A; text-transform: uppercase;
+    }
+
+    /* 4 nautical flags */
+    .logo-flags { display: flex; gap: 2px; align-items: center; }
+
+    /* ─── FOOTER WORDMARK ─── */
+    .footer-wordmark { display: flex; flex-direction: column; gap: 5px; margin-bottom: 18px; }
+    .fw-pienezza {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px; font-weight: 300; color: var(--cream);
+      line-height: 1; letter-spacing: 0.01em;
+    }
+    .fw-row2 { display: flex; align-items: center; gap: 10px; }
+    .fw-yacht {
+      font-size: 9px; font-weight: 600; letter-spacing: 0.38em;
+      text-transform: uppercase; color: rgba(245,240,232,0.45);
+    }
+    .fw-dash { height: 1px; width: 28px; background: #B8922A; }
+    .fw-est { font-size: 9px; letter-spacing: 0.28em; color: #B8922A; font-weight: 400; }
+    .fw-flags { display: flex; gap: 3px; margin-top: 3px; }
+    .fw-est-bottom {
+      font-size: 7.5px; font-weight: 500; letter-spacing: 0.32em;
+      text-transform: uppercase; color: rgba(184,146,42,0.5); margin-top: 2px;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: rgba(14,28,54,0.6);
+      transition: color 250ms var(--ease);
+    }
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-reserve {
+      text-decoration: none; font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--white); background: var(--navy);
+      padding: 12px 24px;
+      transition: background 250ms var(--ease), transform 300ms var(--ease-spring);
+    }
+    .nav-reserve:hover { background: var(--navy2); transform: translateY(-1px); }
+
+    /* hamburger */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      width: 36px; height: 36px; justify-content: center; align-items: center;
+      background: none; border: none; cursor: pointer; padding: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 20px; height: 1.5px; background: var(--navy);
+      border-radius: 2px; transition: transform 400ms var(--ease), opacity 300ms;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 199;
+      background: var(--cream); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 400ms var(--ease);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif; font-size: 52px;
+      font-weight: 300; color: var(--navy); text-decoration: none;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 400ms var(--ease), transform 400ms var(--ease), color 200ms;
+    }
+    .mobile-menu.open a { opacity: 1; transform: translateY(0); }
+    .mobile-menu.open a:nth-child(1) { transition-delay: 60ms; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: 110ms; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: 160ms; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: 210ms; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: 260ms; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu-line { width: 1px; height: 32px; background: var(--cream3); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; min-height: 100dvh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding-bottom: 80px; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/pienezza-sunset.jpeg') center 50% / cover no-repeat;
+      transform: scale(1.04);
+      transition: transform 1400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .hero-bg.ready { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(8,15,26,0.15) 0%,
+        rgba(8,15,26,0.1) 35%,
+        rgba(8,15,26,0.5) 65%,
+        rgba(8,15,26,0.88) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      padding: 0 56px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-tag-line { width: 32px; height: 1px; background: var(--gold); }
+    .hero-tag-text {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--gold2);
+    }
+
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(64px, 10vw, 140px);
+      font-weight: 300; line-height: 0.92; color: var(--white);
+      letter-spacing: -0.02em; margin-bottom: 6px;
+    }
+    .hero-h1 em { font-style: italic; color: rgba(245,240,232,0.85); }
+
+    .hero-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 300; font-style: italic;
+      color: var(--gold2); letter-spacing: 0.06em; margin-bottom: 48px;
+    }
+
+    .hero-ctas { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 12px;
+      text-decoration: none; font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--white); background: var(--navy);
+      padding: 16px 16px 16px 28px;
+      transition: background 250ms var(--ease), transform 300ms var(--ease-spring);
+    }
+    .btn-dark:hover { background: var(--navy2); transform: translateY(-2px); }
+    .btn-dark .arrow-box {
+      width: 30px; height: 30px; background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 300ms var(--ease-spring);
+    }
+    .btn-dark:hover .arrow-box { transform: translate(2px,-2px); }
+
+    .btn-outline-light {
+      display: inline-flex; align-items: center; gap: 10px;
+      text-decoration: none; font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(245,240,232,0.8);
+      border: 1px solid rgba(245,240,232,0.3);
+      padding: 16px 28px;
+      transition: border-color 250ms var(--ease), color 250ms var(--ease);
+    }
+    .btn-outline-light:hover { border-color: var(--gold2); color: var(--gold2); }
+
+    .hero-scroll {
+      position: absolute; bottom: 40px; right: 56px; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .hero-scroll span {
+      font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase;
+      color: rgba(245,240,232,0.4); writing-mode: vertical-rl; transform: rotate(180deg);
+    }
+    .scroll-bar {
+      width: 1px; height: 52px;
+      background: linear-gradient(to bottom, rgba(184,146,42,0.7), transparent);
+      animation: scrollPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%   { opacity:0; transform:scaleY(0); transform-origin:top; }
+      50%  { opacity:1; transform:scaleY(1); }
+      100% { opacity:0; transform:scaleY(0); transform-origin:bottom; }
+    }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 800ms var(--ease), transform 800ms var(--ease);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 100ms; }
+    .d2 { transition-delay: 200ms; }
+    .d3 { transition-delay: 300ms; }
+    .d4 { transition-delay: 400ms; }
+
+    /* ─── STATS BAND ─── */
+    .stats-band {
+      background: var(--navy);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat { padding: 40px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,0.07); }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 48px;
+      font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-lbl {
+      font-size: 9px; font-weight: 500; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(245,240,232,0.4);
+    }
+
+    /* ─── SHARED SECTION STYLES ─── */
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 9.5px; font-weight: 500; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+    }
+    .eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); flex-shrink:0; }
+
+    .h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 300; line-height: 1; color: var(--navy);
+    }
+    .h2 em { font-style: italic; color: rgba(14,28,54,0.55); }
+
+    .body-text {
+      font-size: 14px; font-weight: 300; line-height: 1.9;
+      color: rgba(14,28,54,0.6);
+    }
+
+    .gold-line { width: 48px; height: 1.5px; background: var(--gold); margin: 24px 0; }
+
+    /* ─── ABOUT (cream bg) ─── */
+    .about { background: var(--cream); }
+    .about-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 680px;
+    }
+    .about-img-col { position: relative; overflow: hidden; }
+    .about-img-col img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: brightness(0.92) saturate(0.95);
+      transition: transform 800ms var(--ease);
+    }
+    .about-img-col:hover img { transform: scale(1.03); }
+    .about-img-tag {
+      position: absolute; bottom: 24px; left: 24px;
+      background: rgba(245,240,232,0.9);
+      border: 1px solid rgba(14,28,54,0.12);
+      padding: 8px 18px;
+      font-size: 9px; font-weight: 500; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--navy);
+    }
+
+    .about-text-col {
+      padding: 96px 80px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--cream2);
+    }
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-style: italic; font-weight: 400;
+      color: var(--navy); line-height: 1.55;
+      border-left: 2px solid var(--gold);
+      padding-left: 24px; margin: 28px 0 32px;
+    }
+
+    .btn-navy-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      text-decoration: none; font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--navy); border: 1.5px solid var(--navy);
+      padding: 14px 28px; align-self: flex-start;
+      transition: background 250ms var(--ease), color 250ms var(--ease);
+    }
+    .btn-navy-outline:hover { background: var(--navy); color: var(--white); }
+
+    /* ─── GALLERY (cream3 bg) ─── */
+    .gallery { background: var(--cream3); padding: 100px 56px; }
+    .gallery-header { max-width: 1280px; margin: 0 auto 56px; }
+    .gallery-grid {
+      max-width: 1280px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      grid-template-rows: 360px 260px;
+      gap: 6px;
+    }
+    .g-cell {
+      overflow: hidden; position: relative;
+      background: var(--navy2);
+    }
+    .g-cell img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: brightness(0.88);
+      transition: transform 700ms var(--ease), filter 500ms var(--ease);
+    }
+    .g-cell:hover img { transform: scale(1.04); filter: brightness(1); }
+    .g-cell:nth-child(1) { grid-row: 1 / 3; }
+    .g-label {
+      position: absolute; bottom: 16px; left: 18px;
+      font-size: 9px; font-weight: 500; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(245,240,232,0.6);
+    }
+    .g-placeholder {
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;
+    }
+    .g-placeholder span {
+      font-size: 9px; letter-spacing: 0.28em; color: rgba(245,240,232,0.25); text-transform: uppercase;
+    }
+
+    /* ─── INTERIOR SECTION ─── */
+    .interior-section { background: var(--cream2); padding: 100px 56px; }
+    .interior-inner { max-width: 1280px; margin: 0 auto; }
+    .interior-header { margin-bottom: 56px; }
+    .interior-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+    .interior-card { position: relative; overflow: hidden; cursor: pointer; aspect-ratio: 4/3; }
+    .interior-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: brightness(0.92);
+      transition: transform 600ms var(--ease), filter 400ms var(--ease);
+    }
+    .interior-card:hover img { transform: scale(1.05); filter: brightness(0.65); }
+    .interior-card-overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      opacity: 0; transition: opacity 300ms var(--ease);
+    }
+    .interior-card:hover .interior-card-overlay { opacity: 1; }
+    .interior-card-overlay span {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--white);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(6,14,26,0.97);
+      display: none; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px; padding: 40px;
+      cursor: pointer;
+    }
+    .lightbox.open { display: flex; }
+    .lb-img { max-width: 90vw; max-height: 78vh; object-fit: contain; cursor: default; }
+    .lb-caption { font-size: 10px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .lb-close {
+      position: absolute; top: 24px; right: 28px; background: rgba(255,255,255,0.1);
+      border: none; cursor: pointer; width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 250ms var(--ease);
+    }
+    .lb-close:hover { background: rgba(255,255,255,0.2); }
+    .lb-prev, .lb-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.08); border: none; cursor: pointer;
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 250ms var(--ease);
+    }
+    .lb-prev { left: 24px; } .lb-next { right: 24px; }
+    .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.18); }
+
+    /* ─── EXPERIENCES (white/cream) ─── */
+    .experiences { background: var(--cream); padding: 100px 56px; }
+    .exp-inner { max-width: 1280px; margin: 0 auto; }
+    .exp-header { margin-bottom: 64px; max-width: 480px; }
+    .exp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--cream3); }
+    .exp-card {
+      background: var(--cream); padding: 52px 40px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 300ms var(--ease), background 300ms var(--ease);
+    }
+    .exp-card:hover { border-bottom-color: var(--gold); background: var(--cream2); }
+    .exp-icon {
+      width: 40px; height: 40px; margin-bottom: 28px;
+    }
+    .exp-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 400; color: var(--navy); margin-bottom: 14px;
+    }
+    .exp-desc { font-size: 13px; font-weight: 300; line-height: 1.85; color: rgba(14,28,54,0.6); margin-bottom: 24px; }
+    .exp-meta { font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+
+    /* ─── RATES (navy bg) ─── */
+    .rates { background: var(--navy); padding: 100px 56px; }
+    .rates-inner { max-width: 1100px; margin: 0 auto; }
+    .rates-header { text-align: center; margin-bottom: 72px; }
+    .rates-header .h2 { color: var(--white); margin: 16px 0 20px; }
+    .rates-header .h2 em { color: rgba(245,240,232,0.45); }
+    .rates-header .eyebrow { color: var(--gold2); }
+    .rates-header .eyebrow::before { background: var(--gold2); }
+    .rates-sub { font-size: 13px; font-weight: 300; color: rgba(245,240,232,0.4); }
+    .rates-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-top: 64px; }
+    .rate-card {
+      background: var(--navy); padding: 52px 40px; text-align: center;
+      transition: background 300ms var(--ease), transform 300ms var(--ease-spring);
+    }
+    .rate-card:hover { background: var(--navy2); transform: translateY(-4px); }
+    .rate-card.featured { background: var(--navy2); border-top: 2px solid var(--gold); }
+    .rate-tag {
+      display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,146,42,0.3);
+      padding: 4px 14px; margin-bottom: 20px;
+    }
+    .rate-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 26px;
+      font-weight: 400; color: var(--white); margin-bottom: 32px;
+    }
+    .rate-price {
+      font-family: 'Cormorant Garamond', serif; font-size: 64px;
+      font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 4px;
+    }
+    .rate-unit {
+      font-size: 10px; letter-spacing: 0.25em; color: rgba(245,240,232,0.3);
+      text-transform: uppercase; margin-bottom: 36px;
+    }
+    .rate-list { list-style: none; margin-bottom: 40px; text-align: left; }
+    .rate-list li {
+      font-size: 13px; font-weight: 300; color: rgba(245,240,232,0.55);
+      padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .rate-list li:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+    .rate-list li::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+    .btn-gold {
+      display: inline-block; text-decoration: none; width: 100%;
+      font-size: 10.5px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; text-align: center;
+      color: var(--dark); background: var(--gold); padding: 15px;
+      transition: background 250ms var(--ease);
+    }
+    .btn-gold:hover { background: var(--gold2); }
+    .btn-ghost-navy {
+      display: inline-block; text-decoration: none; width: 100%;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; text-align: center;
+      color: rgba(245,240,232,0.6); border: 1px solid rgba(245,240,232,0.2);
+      padding: 15px; transition: border-color 250ms var(--ease), color 250ms var(--ease);
+    }
+    .btn-ghost-navy:hover { border-color: var(--gold); color: var(--gold2); }
+
+    /* ─── BOOKING (cream bg) ─── */
+    .booking { background: var(--cream2); padding: 100px 56px; }
+    .booking-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+    .booking-left .h2 { margin: 16px 0 24px; }
+    .contact-items { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+    .c-row {
+      display: flex; align-items: center; gap: 14px;
+      text-decoration: none; font-size: 14px; font-weight: 300; color: rgba(14,28,54,0.7);
+      transition: color 250ms var(--ease);
+    }
+    .c-row:hover { color: var(--navy); }
+    .c-icon {
+      width: 36px; height: 36px; border: 1px solid rgba(14,28,54,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .c-icon svg { width: 15px; height: 15px; stroke: var(--gold); }
+
+    /* Form */
+    .form-wrap { background: var(--cream); border: 1px solid rgba(14,28,54,0.1); padding: 44px 40px; }
+    .form-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .fg { display: flex; flex-direction: column; gap: 7px; }
+    .fg.full { grid-column: 1/-1; }
+    .fg label { font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(14,28,54,0.45); }
+    .fg input, .fg select, .fg textarea {
+      background: var(--cream2); border: 1px solid rgba(14,28,54,0.12);
+      color: var(--navy); font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 300; padding: 13px 16px; outline: none;
+      transition: border-color 250ms var(--ease), background 250ms var(--ease);
+      appearance: none; -webkit-appearance: none;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus {
+      border-color: var(--gold); background: var(--cream);
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: rgba(14,28,54,0.25); }
+    .fg select option { background: var(--cream); }
+    .fg textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      grid-column: 1/-1; width: 100%; border: none; cursor: pointer;
+      font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--white); background: var(--navy); padding: 17px;
+      transition: background 250ms var(--ease); margin-top: 4px;
+    }
+    .form-submit:hover { background: var(--navy2); }
+    .form-note { font-size: 11px; font-weight: 300; color: rgba(14,28,54,0.35); text-align: center; margin-top: 14px; }
+
+    /* ─── TESTIMONIAL (cream) ─── */
+    .testimonial { background: var(--cream); padding: 96px 56px; text-align: center; border-top: 1px solid rgba(14,28,54,0.08); }
+    .t-inner { max-width: 740px; margin: 48px auto 0; }
+    .t-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3vw, 34px); font-style: italic; font-weight: 300;
+      line-height: 1.6; color: var(--navy); margin-bottom: 28px;
+      transition: opacity 350ms var(--ease);
+    }
+    .t-q::before { content: '\201C'; color: var(--gold); margin-right: 4px; }
+    .t-q::after  { content: '\201D'; color: var(--gold); margin-left: 4px; }
+    .t-author {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--gold);
+      transition: opacity 350ms var(--ease);
+    }
+    .t-q.fading, .t-author.fading { opacity: 0; }
+    .t-dots { display: flex; justify-content: center; gap: 8px; margin-top: 36px; }
+    .t-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(14,28,54,0.2); cursor: pointer;
+      transition: background 300ms var(--ease), transform 300ms var(--ease-spring);
+    }
+    .t-dot.on { background: var(--gold); transform: scale(1.5); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy); color: var(--cream); padding: 72px 56px 40px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 32px;
+    }
+    .f-brand-p { font-size: 13px; font-weight: 300; color: rgba(245,240,232,0.4); margin-top: 18px; line-height: 1.8; max-width: 280px; }
+    .f-col h4 { font-size: 9.5px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .f-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .f-col ul a { text-decoration: none; font-size: 13px; font-weight: 300; color: rgba(245,240,232,0.5); transition: color 250ms var(--ease); }
+    .f-col ul a:hover { color: var(--gold2); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .f-copy { font-size: 11.5px; font-weight: 300; color: rgba(245,240,232,0.2); }
+    .f-flags { display: flex; gap: 5px; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-reserve { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero-content { padding: 0 24px; }
+      .hero-scroll { display: none; }
+
+      .stats-band { grid-template-columns: repeat(2,1fr); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(3) { border-right:1px solid rgba(255,255,255,0.07); border-top:1px solid rgba(255,255,255,0.07); }
+      .stat:nth-child(4) { border-right:none; border-top:1px solid rgba(255,255,255,0.07); }
+
+      .about-inner { grid-template-columns: 1fr; }
+      .about-img-col { min-height: 320px; }
+      .about-text-col { padding: 56px 24px; }
+
+      .gallery { padding: 64px 24px; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .g-cell { height: 260px; }
+      .g-cell:nth-child(1) { grid-row: auto; }
+
+      .experiences { padding: 64px 24px; }
+      .exp-grid { grid-template-columns: 1fr; gap: 1px; }
+
+      .rates { padding: 64px 24px; }
+      .rates-grid { grid-template-columns: 1fr; }
+
+      .booking { padding: 64px 24px; }
+      .booking-inner { grid-template-columns: 1fr; gap: 48px; }
+      .form-fields { grid-template-columns: 1fr; }
+      .fg.full { grid-column: auto; }
+      .form-submit { grid-column: auto; }
+
+      .testimonial { padding: 64px 24px; }
+
+      footer { padding: 56px 24px 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV — Propuesta 04 exact -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <!-- Anchor traced from Propuesta 04 exact proportions -->
+      <svg class="nav-anchor" viewBox="-4 0 108 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ring (top circle, thin stroke only) -->
+        <circle cx="50" cy="10" r="9" class="a-stroke" stroke-width="2.4"/>
+        <!-- Shaft: ring bottom → crown -->
+        <line x1="50" y1="19" x2="50" y2="104" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- Stock/crossbar at ~30% height, with perpendicular T-caps at each end -->
+        <line x1="16" y1="33" x2="84" y2="33" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="16" y2="40" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="84" y1="26" x2="84" y2="40" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- Left arm: sweeps from crown outward & down, curves back up to fluke -->
+        <path d="M50 104 C28 116 4 114 2 94" class="a-stroke" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <!-- Left fluke: sharp diagonal tip pointing upper-left -->
+        <line x1="2" y1="94" x2="-3" y2="82" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- Right arm: mirror -->
+        <path d="M50 104 C72 116 96 114 98 94" class="a-stroke" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <!-- Right fluke: sharp diagonal tip pointing upper-right -->
+        <line x1="98" y1="94" x2="103" y2="82" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+
+      <!-- Vertical divider -->
+      <div class="logo-div"></div>
+
+      <!-- Text: Pienezza + YACHT — EST 2024 + flags -->
+      <div class="logo-text">
+        <span class="logo-pienezza">Pienezza</span>
+        <div class="logo-row2">
+          <span class="logo-yacht">Yacht</span>
+          <div class="logo-dash"></div>
+          <span class="logo-est">EST 2024</span>
+        </div>
+        <div class="logo-flags">
+          <!-- Flag 1: ≡ navy with 2 white stripes -->
+          <svg width="13" height="10" viewBox="0 0 13 10"><rect width="13" height="10" fill="#1e3a6e"/><rect y="3" width="13" height="2" fill="#f5f0e8"/><rect y="7" width="13" height="2" fill="#f5f0e8"/></svg>
+          <!-- Flag 2: × red X on white -->
+          <svg width="13" height="10" viewBox="0 0 13 10"><rect width="13" height="10" fill="#f5f0e8"/><line x1="1" y1="1" x2="12" y2="9" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="1" x2="1" y2="9" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <!-- Flag 3: + navy cross on white -->
+          <svg width="13" height="10" viewBox="0 0 13 10"><rect width="13" height="10" fill="#f5f0e8"/><rect x="5" y="0" width="3" height="10" fill="#1e3a6e"/><rect x="0" y="3.5" width="13" height="3" fill="#1e3a6e"/></svg>
+          <!-- Flag 4: diagonal split navy/gold -->
+          <svg width="13" height="10" viewBox="0 0 13 10"><polygon points="0,0 13,0 13,10" fill="#B8922A"/><polygon points="0,0 0,10 13,10" fill="#1e3a6e"/></svg>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#vessel">The Yacht</a></li>
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#rates">Rates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-reserve">Reserve Now</a>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#vessel" onclick="closeMenu()">The Yacht</a>
+    <div class="mobile-menu-line"></div>
+    <a href="#experiences" onclick="closeMenu()">Experiences</a>
+    <div class="mobile-menu-line"></div>
+    <a href="#rates" onclick="closeMenu()">Rates</a>
+    <div class="mobile-menu-line"></div>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <div class="mobile-menu-line"></div>
+    <a href="#contact" onclick="closeMenu()">Reserve</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag reveal">
+        <div class="hero-tag-line"></div>
+        <span class="hero-tag-text">Miami River · Private Charter</span>
+      </div>
+      <h1 class="hero-h1 reveal d1">Private<br><em>Charter</em></h1>
+      <p class="hero-h2 reveal d2">dal mare — from the sea</p>
+      <div class="hero-ctas reveal d3">
+        <a href="#contact" class="btn-dark">
+          Book Your Charter
+          <div class="arrow-box">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M4 2h6v6"/></svg>
+          </div>
+        </a>
+        <a href="#vessel" class="btn-outline-light">Explore the Yacht</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-bar"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div class="stat reveal"><div class="stat-num">12</div><div class="stat-lbl">Guests Max</div></div>
+    <div class="stat reveal d1"><div class="stat-num">6</div><div class="stat-lbl">Hours Available</div></div>
+    <div class="stat reveal d2"><div class="stat-num">100%</div><div class="stat-lbl">Private</div></div>
+    <div class="stat reveal d3"><div class="stat-num">Miami</div><div class="stat-lbl">South Florida</div></div>
+  </div>
+
+  <!-- ABOUT / THE VESSEL -->
+  <section class="about" id="vessel">
+    <div class="about-inner">
+      <div class="about-img-col reveal">
+        <img src="images/pienezza-tropical-new.jpeg" alt="Pienezza Yacht crystal waters">
+        <div class="about-img-tag">Key Biscayne · Hobie Beach</div>
+      </div>
+      <div class="about-text-col reveal d2">
+        <span class="eyebrow">The Vessel</span>
+        <h2 class="h2">A private world<br><em>on open water</em></h2>
+        <div class="gold-line"></div>
+        <p class="body-text">
+          Pienezza — Italian for fullness, abundance. An invitation to experience the sea entirely on your own terms. Every detail aboard has been curated for those who expect the exceptional.
+        </p>
+        <blockquote class="about-quote">
+          From the Miami River to open water — your yacht, your itinerary, your pace.
+        </blockquote>
+        <p class="body-text">
+          Depart from the Miami River and set course for Monument Island, Marine Stadium, Hobie Beach in Key Biscayne, or anchor in the open bay. Up to 12 guests, 6 hours of pure freedom.
+        </p>
+        <a href="#experiences" class="btn-navy-outline" style="margin-top:40px;">See All Experiences</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-header reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2 class="h2">On the <em>water</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-cell reveal">
+        <img src="images/pienezza-gallery-main.jpeg" alt="Pienezza cruising Miami sunset" style="object-position:center center;">
+        
+      </div>
+      <div class="g-cell reveal d1">
+        <img src="images/pienezza-sunset.jpeg" alt="Pienezza at golden sunset Miami">
+        
+      </div>
+      <div class="g-cell reveal d2">
+        <img src="images/pienezza-tropical-new.jpeg" alt="Pienezza crystal clear water" style="object-position:center 40%;">
+        
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:6px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+      <div class="g-cell reveal d1" style="height:240px;">
+        <img src="images/pienezza-cruising.jpeg" alt="Pienezza cruising Miami">
+      </div>
+      <div class="g-cell reveal d2" style="height:240px;">
+        <img src="images/pienezza-sandbar-real.jpeg" alt="Pienezza at the sandbar">
+      </div>
+      <div class="g-cell reveal d3" style="height:240px;">
+        <img src="images/pienezza-sunrise.jpeg" alt="Pienezza sunrise Miami">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERIOR -->
+  <section class="interior-section">
+    <div class="interior-inner">
+      <div class="interior-header reveal">
+        <span class="eyebrow">On Board</span>
+        <h2 class="h2">The <em>interior</em></h2>
+        <div class="gold-line"></div>
+        <p class="body-text" style="max-width:480px;">A fully equipped cabin with private bedroom, salon lounge, and fly bridge helm — everything you need for the perfect day on the water.</p>
+      </div>
+      <div class="interior-grid">
+        <div class="interior-card reveal" onclick="openLightbox(0)">
+          <img src="images/interior-salon-new.jpg" alt="Salon lounge" style="object-position:center top;">
+          <div class="interior-card-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            <span>The Salon</span>
+          </div>
+        </div>
+        <div class="interior-card reveal d1" onclick="openLightbox(1)">
+          <img src="images/interior-lounge.jpg" alt="Salon with Miami view">
+          <div class="interior-card-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            <span>The Lounge</span>
+          </div>
+        </div>
+        <div class="interior-card reveal d2" onclick="openLightbox(2)">
+          <img src="images/interior-galley.jpg" alt="Galley kitchen">
+          <div class="interior-card-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            <span>The Galley</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="3" x2="17" y2="17"/><line x1="17" y1="3" x2="3" y2="17"/></svg>
+    </button>
+    <button class="lb-prev" onclick="event.stopPropagation(); moveLightbox(-1)">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="13,4 7,10 13,16"/></svg>
+    </button>
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <div class="lb-caption" id="lbCaption"></div>
+    <button class="lb-next" onclick="event.stopPropagation(); moveLightbox(1)">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,4 13,10 7,16"/></svg>
+    </button>
+  </div>
+
+  <!-- EXPERIENCES -->
+  <section class="experiences" id="experiences">
+    <div class="exp-inner">
+      <div class="exp-header reveal">
+        <span class="eyebrow">On Board</span>
+        <h2 class="h2">Crafted<br><em>experiences</em></h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card reveal d1">
+          <svg class="exp-icon" viewBox="0 0 40 40" fill="none" stroke="#B8922A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 30 Q12 18 20 22 Q28 26 34 14"/><line x1="4" y1="36" x2="36" y2="36"/><path d="M20 22 L20 8 L28 16"/>
+          </svg>
+          <h3 class="exp-name">Full-Day Charter</h3>
+          <p class="exp-desc">Complete exclusive access — Monument Island, Hobie Beach, Marine Stadium by sea. Your vessel, your itinerary, your rules. Completely private.</p>
+          <span class="exp-meta">4–6 Hours · Fully Customizable</span>
+        </div>
+        <div class="exp-card reveal d2">
+          <svg class="exp-icon" viewBox="0 0 40 40" fill="none" stroke="#B8922A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 4 L22.9 13.1 L32.4 13.1 L24.8 18.6 L27.6 27.7 L20 22.2 L12.4 27.7 L15.2 18.6 L7.6 13.1 L17.1 13.1 Z"/>
+          </svg>
+          <h3 class="exp-name">Special Events</h3>
+          <p class="exp-desc">Birthdays, anniversaries, corporate outings. Pienezza becomes your private waterborne venue — fully decorated, curated, extraordinary.</p>
+          <span class="exp-meta">Custom Duration · Full Service</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATES -->
+  <section class="rates" id="rates">
+    <div class="rates-inner">
+      <div class="rates-header reveal">
+        <span class="eyebrow">Pricing</span>
+        <h2 class="h2">Simple, <em>transparent</em></h2>
+        <p class="rates-sub">Captain included. No hidden fees. Up to 12 guests.</p>
+      </div>
+      <div class="rates-grid" style="grid-template-columns: repeat(2,1fr); max-width:720px; margin:64px auto 0;">
+        <div class="rate-card reveal d1">
+          <div class="rate-tag">Charter</div>
+          <div class="rate-name">4 Hours</div>
+          <div class="rate-price">$800</div>
+          <div class="rate-unit">flat rate</div>
+          <ul class="rate-list">
+            <li>Up to 12 guests</li>
+            <li>Captain included</li>
+            <li>Ice &amp; coolers</li>
+            <li>Sound system</li>
+          </ul>
+          <a href="#contact" class="btn-ghost-navy">Reserve</a>
+        </div>
+        <div class="rate-card featured reveal d2">
+          <div class="rate-tag">Charter</div>
+          <div class="rate-name">6 Hours</div>
+          <div class="rate-price">$1,200</div>
+          <div class="rate-unit">flat rate</div>
+          <ul class="rate-list">
+            <li>Up to 12 guests</li>
+            <li>Captain included</li>
+            <li>Ice &amp; coolers</li>
+            <li>Sound system</li>
+          </ul>
+          <a href="#contact" class="btn-gold">Reserve</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonial">
+    <span class="eyebrow reveal" style="justify-content:center;">Guest Reviews</span>
+    <div class="t-inner reveal d1">
+      <p class="t-q" id="tQ">Absolutely incredible experience. The boat was immaculate, the captain professional, and the Miami sunset was something we will never forget.</p>
+      <p class="t-author" id="tA">— Maria &amp; Carlos · Miami Beach</p>
+      <div class="t-dots">
+        <div class="t-dot on" onclick="goT(0)"></div>
+        <div class="t-dot" onclick="goT(1)"></div>
+        <div class="t-dot" onclick="goT(2)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking" id="contact">
+    <div class="booking-inner">
+      <div class="booking-left reveal">
+        <span class="eyebrow">Reserve</span>
+        <h2 class="h2">Plan your<br><em>escape</em></h2>
+        <div class="gold-line"></div>
+        <p class="body-text">Send your details and we confirm your charter within 24 hours. For immediate availability, reach us directly below.</p>
+        <div class="contact-items">
+          <a href="tel:+13059999999" class="c-row">
+            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.82 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+            +1 (305) 999-9999
+          </a>
+          <a href="mailto:info@pienezzayacht.com" class="c-row">
+            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            info@pienezzayacht.com
+          </a>
+          <div class="c-row" style="cursor:default;">
+            <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            Brickell · Miami, Florida
+          </div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="form-wrap">
+          <form class="form-fields" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="3b88d6d2-b9d5-4c53-b3d0-87b8d68292aa">
+            <input type="hidden" name="subject" value="Pienezza Yacht — Charter Inquiry">
+            <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Sofia" required></div>
+            <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Marino" required></div>
+            <div class="fg full"><label>Email</label><input type="email" name="email" placeholder="sofia@email.com" required></div>
+            <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="+1 (305) 000-0000"></div>
+            <div class="fg"><label>Preferred Date</label><input type="date" name="date"></div>
+            <div class="fg"><label>Guests</label>
+              <select name="guests"><option value="">Select</option><option>2–4 guests</option><option>5–8 guests</option><option>9–12 guests</option></select>
+            </div>
+            <div class="fg"><label>Experience</label>
+              <select name="experience"><option value="">Charter type</option><option>Full-Day Charter (4–6 hrs)</option><option>Special Event</option><option>Corporate</option></select>
+            </div>
+            <div class="fg full"><label>Message</label><textarea name="message" placeholder="Tell us about your ideal experience..."></textarea></div>
+            <button type="submit" class="form-submit">Send Inquiry</button>
+          </form>
+          <p class="form-note">We respond within 24 hours · No commitment required</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <!-- Footer: Propuesta 04 horizontal lockup, cream version -->
+      <div>
+        <div class="footer-wordmark">
+          <span class="fw-pienezza">Pienezza</span>
+          <div class="fw-row2">
+            <span class="fw-yacht">Yacht</span>
+            <div class="fw-dash"></div>
+            <span class="fw-est">EST 2024</span>
+          </div>
+          <div class="fw-flags">
+            <svg width="16" height="12" viewBox="0 0 16 12"><rect width="16" height="12" fill="#1e3a6e"/><rect y="3.5" width="16" height="2.5" fill="rgba(245,240,232,0.7)"/><rect y="8" width="16" height="2.5" fill="rgba(245,240,232,0.7)"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><rect width="16" height="12" fill="#f5f0e8"/><line x1="1" y1="1" x2="15" y2="11" stroke="#C0392B" stroke-width="3" stroke-linecap="round"/><line x1="15" y1="1" x2="1" y2="11" stroke="#C0392B" stroke-width="3" stroke-linecap="round"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><rect width="16" height="12" fill="#f5f0e8"/><rect x="6" y="0" width="4" height="12" fill="#1e3a6e"/><rect x="0" y="4" width="16" height="4" fill="#1e3a6e"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><polygon points="0,0 16,0 16,12" fill="#B8922A"/><polygon points="0,0 0,12 16,12" fill="#1e3a6e"/></svg>
+          </div>
+        </div>
+        <p class="f-brand-p">Private yacht charter in Miami. Curated experiences on the water for those who seek the exceptional.</p>
+      </div>
+      <div class="f-col"><h4>Navigate</h4><ul><li><a href="#vessel">The Yacht</a></li><li><a href="#experiences">Experiences</a></li><li><a href="#rates">Rates</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Experiences</h4><ul><li><a href="#contact">Full-Day Charter</a></li><li><a href="#contact">Special Events</a></li><li><a href="#contact">Corporate</a></li></ul></div>
+      <div class="f-col"><h4>Contact</h4><ul><li><a href="tel:+13059999999">+1 (305) 999-9999</a></li><li><a href="mailto:info@pienezzayacht.com">info@pienezzayacht.com</a></li><li><a href="#">Brickell, Miami FL</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="f-copy">© MMXXVI Pienezza Yacht · All rights reserved · Miami, Florida</p>
+      <div class="f-flags">
+        <svg width="16" height="16" viewBox="0 0 16 16"><rect width="8" height="8" fill="#1e2d5a"/><rect x="8" width="8" height="8" fill="#b8922a"/><rect y="8" width="8" height="8" fill="#b8922a"/><rect x="8" y="8" width="8" height="8" fill="#1e2d5a"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="#1e2d5a"/><polygon points="8,2 14,14 2,14" fill="#b8922a"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="8" fill="#c0392b"/><rect y="8" width="16" height="8" fill="#f5f0e8"/></svg>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hero bg
+    const heroBg = document.getElementById('heroBg');
+    const hi = new Image();
+    hi.onload = () => requestAnimationFrame(() => heroBg.classList.add('ready'));
+    hi.src = 'images/pienezza-sunset.jpeg';
+
+    // Nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), { passive: true });
+
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mm = document.getElementById('mobileMenu');
+    let open = false;
+    ham.addEventListener('click', () => {
+      open = !open;
+      ham.classList.toggle('open', open);
+      mm.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    function closeMenu() { open=false; ham.classList.remove('open'); mm.classList.remove('open'); document.body.style.overflow=''; }
+
+    // Reveal on scroll
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    // Hero reveals immediately
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => setTimeout(() => el.classList.add('in'), 200 + i*150));
+
+    // Testimonials
+    const ts = [
+      { q: 'Absolutely incredible experience. The boat was immaculate, the captain professional, and the Miami sunset was something we will never forget.', a: '— Maria & Carlos · Miami Beach' },
+      { q: 'We celebrated our anniversary on Pienezza and it exceeded every expectation. The atmosphere felt truly elevated, truly special.', a: '— Valentina R. · Brickell' },
+      { q: 'Used Pienezza for a corporate event and our clients were blown away. Professional from first email to docking back. Highly recommend.', a: '— Rafael M. · Coral Gables' }
+    ];
+    let ct = 0;
+    const tQ = document.getElementById('tQ'), tA = document.getElementById('tA');
+    function goT(i) {
+      tQ.classList.add('fading'); tA.classList.add('fading');
+      setTimeout(() => {
+        ct = i; tQ.textContent = ts[i].q; tA.textContent = ts[i].a;
+        tQ.classList.remove('fading'); tA.classList.remove('fading');
+        document.querySelectorAll('.t-dot').forEach((d,j) => d.classList.toggle('on', j===i));
+      }, 360);
+    }
+    setInterval(() => goT((ct+1) % ts.length), 5500);
+
+    // Lightbox
+    const lbPhotos = [
+      { src: 'images/interior-salon-new.jpg', caption: 'The Salon' },
+      { src: 'images/interior-lounge.jpg',    caption: 'The Lounge' },
+      { src: 'images/interior-galley.jpg',    caption: 'The Galley' },
+    ];
+    let lbIndex = 0;
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCaption');
+
+    function openLightbox(i) {
+      lbIndex = i;
+      lbImg.src = lbPhotos[i].src;
+      lbCap.textContent = lbPhotos[i].caption;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function moveLightbox(dir) {
+      lbIndex = (lbIndex + dir + lbPhotos.length) % lbPhotos.length;
+      lbImg.style.opacity = 0;
+      setTimeout(() => {
+        lbImg.src = lbPhotos[lbIndex].src;
+        lbCap.textContent = lbPhotos[lbIndex].caption;
+        lbImg.style.opacity = 1;
+      }, 180);
+    }
+    lbImg.style.transition = 'opacity 180ms';
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') moveLightbox(-1);
+      if (e.key === 'ArrowRight') moveLightbox(1);
+    });
+  </script>
+</body>
+</html>
