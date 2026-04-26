@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
   <style>
     :root {
       --cream:   #F5F0E8;
@@ -130,9 +131,11 @@
       background: none; border: none; cursor: pointer; padding: 0;
     }
     .nav-hamburger span {
-      display: block; width: 20px; height: 1.5px; background: var(--navy);
-      border-radius: 2px; transition: transform 400ms var(--ease), opacity 300ms;
+      display: block; width: 20px; height: 1.5px; background: rgba(255,255,255,0.9);
+      border-radius: 2px; transition: transform 400ms var(--ease), opacity 300ms, background 450ms var(--ease);
     }
+    nav.solid .nav-hamburger span { background: var(--navy); }
+    .nav-hamburger.open span { background: var(--navy); }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -652,6 +655,136 @@
       .footer-top { grid-template-columns: 1fr 1fr; }
       .footer-bottom { flex-direction: column; gap: 12px; }
     }
+
+    /* ─── MODAL DE RESERVA ─── */
+    .reserve-modal {
+      position: fixed; inset: 0; z-index: 9500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 350ms var(--ease);
+    }
+    .reserve-modal.open { opacity: 1; pointer-events: all; }
+
+    .reserve-modal-overlay {
+      position: absolute; inset: 0;
+      background: rgba(8, 15, 26, 0.86);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .reserve-modal-box {
+      position: relative; z-index: 1;
+      background: var(--cream);
+      width: 100%; max-width: 520px;
+      padding: 52px 48px 44px;
+      border-top: 2px solid var(--gold);
+      transform: translateY(16px) scale(0.98);
+      transition: transform 380ms var(--ease);
+      max-height: 90vh; overflow-y: auto;
+    }
+    .reserve-modal.open .reserve-modal-box { transform: translateY(0) scale(1); }
+
+    .reserve-modal-close {
+      position: absolute; top: 18px; right: 18px;
+      background: none; border: none; cursor: pointer;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0.3; transition: opacity 200ms;
+    }
+    .reserve-modal-close:hover { opacity: 0.8; }
+
+    .reserve-modal-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 9.5px; font-weight: 500; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .reserve-modal-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); flex-shrink:0; }
+
+    .reserve-modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px; font-weight: 300; color: var(--navy);
+      line-height: 1.05; margin-bottom: 8px;
+    }
+    .reserve-modal-title em { font-style: italic; color: rgba(14,28,54,0.45); }
+
+    .reserve-modal-sub {
+      font-size: 11.5px; font-weight: 300; color: rgba(14,28,54,0.4);
+      letter-spacing: 0.05em; margin-bottom: 32px;
+    }
+
+    /* Selector de paquete */
+    .reserve-pkgs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
+    .reserve-pkg {
+      padding: 20px 16px; text-align: center; cursor: pointer;
+      border: 1.5px solid rgba(14,28,54,0.1); background: var(--cream2);
+      transition: border-color 250ms var(--ease), background 250ms var(--ease);
+      user-select: none;
+    }
+    .reserve-pkg:hover { border-color: rgba(184,146,42,0.35); }
+    .reserve-pkg.selected { border-color: var(--gold); background: var(--cream); }
+    .reserve-pkg-label {
+      font-size: 8.5px; font-weight: 600; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+    }
+    .reserve-pkg-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px; font-weight: 300; color: var(--navy); line-height: 1;
+    }
+    .reserve-pkg-unit {
+      font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(14,28,54,0.3); margin-top: 3px;
+    }
+
+    /* Divisor */
+    .reserve-or {
+      display: flex; align-items: center; gap: 14px; margin: 0 0 22px;
+    }
+    .reserve-or::before, .reserve-or::after { content:''; flex:1; height:1px; background:rgba(14,28,54,0.1); }
+    .reserve-or span {
+      font-size: 9px; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(14,28,54,0.28); white-space: nowrap;
+    }
+
+    /* CTAs del modal */
+    .reserve-ctas { display: flex; flex-direction: column; gap: 10px; }
+
+    .btn-reserve-online {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 16px 24px; border: none; cursor: pointer;
+      font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--white); background: var(--navy);
+      transition: background 250ms var(--ease);
+    }
+    .btn-reserve-online:hover { background: var(--navy2); }
+
+    .btn-reserve-whatsapp {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 16px 24px; text-decoration: none;
+      border: 1.5px solid rgba(37,211,102,0.35); background: transparent; cursor: pointer;
+      font-family: 'Montserrat', sans-serif; font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: #1a6b5c;
+      transition: background 250ms var(--ease), border-color 250ms var(--ease);
+    }
+    .btn-reserve-whatsapp:hover { background: rgba(37,211,102,0.07); border-color: rgba(37,211,102,0.65); }
+
+    .reserve-footnote {
+      font-size: 10.5px; font-weight: 300; color: rgba(14,28,54,0.3);
+      text-align: center; margin-top: 18px; letter-spacing: 0.04em;
+    }
+
+    /* Mobile — bottom sheet */
+    @media (max-width: 600px) {
+      .reserve-modal { padding: 0; align-items: flex-end; }
+      .reserve-modal-box {
+        max-width: 100%; padding: 36px 22px 48px;
+        transform: translateY(40px); max-height: 88vh;
+      }
+      .reserve-modal.open .reserve-modal-box { transform: translateY(0); }
+      .reserve-modal-title { font-size: 32px; }
+      .reserve-pkg-price { font-size: 34px; }
+    }
   </style>
 </head>
 <body>
@@ -708,7 +841,7 @@
       <li><a href="#rates">Rates</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="nav-reserve">Reserve Now</a>
+    <a href="#" class="nav-reserve" onclick="event.preventDefault(); openReserveModal(null)">Reserve Now</a>
     <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </nav>
 
@@ -721,7 +854,7 @@
     <div class="mobile-menu-line"></div>
     <a href="#contact" onclick="closeMenu()">Contact</a>
     <div class="mobile-menu-line"></div>
-    <a href="#contact" onclick="closeMenu()">Reserve</a>
+    <a href="#" onclick="closeMenu(); openReserveModal(null)">Reserve</a>
   </div>
 
   <!-- HERO -->
@@ -736,7 +869,7 @@
       <h1 class="hero-h1 reveal d1">Private<br><em>Charter</em></h1>
       <p class="hero-h2 reveal d2">dal mare — from the sea</p>
       <div class="hero-ctas reveal d3">
-        <a href="#contact" class="btn-dark">
+        <a href="#" class="btn-dark" onclick="event.preventDefault(); openReserveModal(null)">
           Book Your Charter
           <div class="arrow-box">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M4 2h6v6"/></svg>
@@ -892,6 +1025,16 @@
           <p class="exp-desc">Birthdays, anniversaries, corporate outings. Pienezza becomes your private waterborne venue — fully decorated, curated, extraordinary.</p>
           <span class="exp-meta">Custom Duration · Full Service</span>
         </div>
+        <div class="exp-card reveal d3">
+          <svg class="exp-icon" viewBox="0 0 40 40" fill="none" stroke="#B8922A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="16" width="24" height="18" rx="2"/>
+            <path d="M14 16V12a2 2 0 012-2h8a2 2 0 012 2v4"/>
+            <line x1="8" y1="26" x2="32" y2="26"/>
+          </svg>
+          <h3 class="exp-name">Corporate</h3>
+          <p class="exp-desc">Impress clients or reward your team away from any conference room. Bespoke packages for groups — fully private, impeccably executed on the water.</p>
+          <span class="exp-meta">Custom Duration · Group Packages</span>
+        </div>
       </div>
     </div>
   </section>
@@ -916,7 +1059,7 @@
             <li>Ice &amp; coolers</li>
             <li>Sound system</li>
           </ul>
-          <a href="#contact" class="btn-ghost-navy">Reserve</a>
+          <a href="#" class="btn-ghost-navy" onclick="event.preventDefault(); openReserveModal('4hr')">Reserve</a>
         </div>
         <div class="rate-card featured reveal d2">
           <div class="rate-tag">Charter</div>
@@ -929,7 +1072,7 @@
             <li>Ice &amp; coolers</li>
             <li>Sound system</li>
           </ul>
-          <a href="#contact" class="btn-gold">Reserve</a>
+          <a href="#" class="btn-gold" onclick="event.preventDefault(); openReserveModal('6hr')">Reserve</a>
         </div>
       </div>
     </div>
@@ -958,11 +1101,11 @@
         <div class="gold-line"></div>
         <p class="body-text">Send your details and we confirm your charter within 24 hours. For immediate availability, reach us directly below.</p>
         <div class="contact-items">
-          <a href="tel:+13059999999" class="c-row">
+          <a href="tel:+15624756245" class="c-row" data-contact="phone">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.82 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
-            +1 (305) 999-9999
+            <span data-contact-text="phone">+1 (562) 475-6245</span>
           </a>
-          <a href="mailto:info@pienezzayacht.com" class="c-row">
+          <a href="mailto:info@pienezzayacht.com" class="c-row" data-contact="email">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             info@pienezzayacht.com
           </a>
@@ -1020,7 +1163,7 @@
       </div>
       <div class="f-col"><h4>Navigate</h4><ul><li><a href="#vessel">The Yacht</a></li><li><a href="#experiences">Experiences</a></li><li><a href="#rates">Rates</a></li><li><a href="#contact">Contact</a></li></ul></div>
       <div class="f-col"><h4>Experiences</h4><ul><li><a href="#contact">Full-Day Charter</a></li><li><a href="#contact">Special Events</a></li><li><a href="#contact">Corporate</a></li></ul></div>
-      <div class="f-col"><h4>Contact</h4><ul><li><a href="tel:+13059999999">+1 (305) 999-9999</a></li><li><a href="mailto:info@pienezzayacht.com">info@pienezzayacht.com</a></li><li><a href="#">Brickell, Miami FL</a></li></ul></div>
+      <div class="f-col"><h4>Contact</h4><ul><li><a href="tel:+15624756245" data-contact="phone"><span data-contact-text="phone">+1 (562) 475-6245</span></a></li><li><a href="mailto:info@pienezzayacht.com" data-contact="email">info@pienezzayacht.com</a></li><li><a href="#">Brickell, Miami FL</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p class="f-copy">© MMXXVI Pienezza Yacht · All rights reserved · Miami, Florida</p>
@@ -1120,5 +1263,196 @@
       if (e.key === 'ArrowRight') moveLightbox(1);
     });
   </script>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- MODAL DE RESERVA                                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="reserve-modal" id="reserveModal">
+    <div class="reserve-modal-overlay" onclick="closeReserveModal()"></div>
+    <div class="reserve-modal-box">
+
+      <!-- Botón de cerrar -->
+      <button class="reserve-modal-close" onclick="closeReserveModal()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0E1C36" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="2" x2="14" y2="14"/><line x1="14" y1="2" x2="2" y2="14"/>
+        </svg>
+      </button>
+
+      <!-- Encabezado -->
+      <span class="reserve-modal-eyebrow">Reserve Your Charter</span>
+      <h2 class="reserve-modal-title">Choose your<br><em>experience</em></h2>
+      <p class="reserve-modal-sub">Miami River · Up to 12 guests · Captain included</p>
+
+      <!-- Selector de paquete -->
+      <div class="reserve-pkgs">
+        <div class="reserve-pkg" id="modalPkg4hr" onclick="selectPkg('4hr')">
+          <div class="reserve-pkg-label">4 Hours</div>
+          <div class="reserve-pkg-price">$800</div>
+          <div class="reserve-pkg-unit">flat rate</div>
+        </div>
+        <div class="reserve-pkg selected" id="modalPkg6hr" onclick="selectPkg('6hr')">
+          <div class="reserve-pkg-label">6 Hours</div>
+          <div class="reserve-pkg-price">$1,200</div>
+          <div class="reserve-pkg-unit">flat rate</div>
+        </div>
+      </div>
+
+      <!-- Divisor -->
+      <div class="reserve-or"><span>How would you like to reserve?</span></div>
+
+      <!-- CTAs -->
+      <div class="reserve-ctas">
+        <!-- Opción A: Calendly → Stripe -->
+        <button class="btn-reserve-online" onclick="reservarOnline()">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="2" width="13" height="12" rx="1.5"/>
+            <path d="M1 6h13"/><path d="M5 1v3M10 1v3"/>
+          </svg>
+          Reserve &amp; Pay Online
+        </button>
+
+        <!-- Opción B: WhatsApp -->
+        <a class="btn-reserve-whatsapp" id="modalBtnWhatsApp" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="#25D366">
+            <path d="M8.5 0C3.81 0 0 3.81 0 8.5c0 1.5.39 2.91 1.08 4.14L0 17l4.49-1.17A8.47 8.47 0 008.5 17C13.19 17 17 13.19 17 8.5S13.19 0 8.5 0zm4.38 11.67c-.18.51-1.07.99-1.46 1.05-.36.05-.81.07-1.3-.08-.3-.1-.68-.22-1.17-.43-2.06-.89-3.4-2.96-3.51-3.09-.1-.13-.85-1.13-.85-2.17 0-1.03.54-1.53.73-1.74.19-.21.41-.26.55-.26h.4c.13 0 .3-.05.47.36.18.42.61 1.49.66 1.59.06.1.1.24.02.37-.08.14-.11.22-.22.34l-.32.38c-.1.1-.21.22-.1.43.12.21.53.88 1.14 1.43.77.7 1.43.92 1.64 1.01.21.1.33.08.45-.05l.65-.76c.12-.13.25-.1.42-.06.17.05 1.07.5 1.25.6.18.09.3.13.35.21.05.07.05.45-.13.97z"/>
+          </svg>
+          Reserve via WhatsApp
+        </a>
+      </div>
+
+      <p class="reserve-footnote">We confirm within 24 hours &nbsp;·&nbsp; No commitment required</p>
+    </div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════════
+    // SISTEMA DE RESERVAS — PIENEZZA YACHT
+    // ═══════════════════════════════════════════════════════════════════
+
+    // Paquete seleccionado en el modal ('4hr' o '6hr')
+    var modalSelectedPkg = '6hr';
+
+    // Abre el modal, opcionalmente pre-seleccionando un paquete
+    function openReserveModal(pkg) {
+      modalSelectedPkg = pkg || '6hr';
+      actualizarSeleccionPkg(modalSelectedPkg);
+      actualizarBtnWhatsApp();
+      document.getElementById('reserveModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Cierra el modal
+    function closeReserveModal() {
+      document.getElementById('reserveModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Selecciona un paquete y actualiza la UI
+    function selectPkg(pkg) {
+      modalSelectedPkg = pkg;
+      actualizarSeleccionPkg(pkg);
+      actualizarBtnWhatsApp();
+    }
+
+    // Actualiza el estado visual de los package cards
+    function actualizarSeleccionPkg(pkg) {
+      document.getElementById('modalPkg4hr').classList.toggle('selected', pkg === '4hr');
+      document.getElementById('modalPkg6hr').classList.toggle('selected', pkg === '6hr');
+    }
+
+    // Genera el link de WhatsApp con el paquete seleccionado e incluye precio
+    function actualizarBtnWhatsApp() {
+      var cfg = PIENEZZA_CONFIG;
+      var pkg = modalSelectedPkg === '4hr' ? cfg.packages.fourHour : cfg.packages.sixHour;
+      var precio = pkg.price.toLocaleString('en-US');
+      var mensaje = cfg.whatsappMessage + ' — ' + pkg.name + ' ($' + precio + ')';
+      var url = 'https://wa.me/' + cfg.whatsappNumber + '?text=' + encodeURIComponent(mensaje);
+      document.getElementById('modalBtnWhatsApp').href = url;
+    }
+
+    // Inicia el flujo de reserva online: carga Calendly y abre el popup
+    function reservarOnline() {
+      var cfg = PIENEZZA_CONFIG;
+      var calendlyUrl = modalSelectedPkg === '4hr' ? cfg.calendlyUrl4hr : cfg.calendlyUrl6hr;
+
+      // Avisa si el URL todavía es un placeholder
+      if (calendlyUrl.indexOf('REPLACE_') === 0) {
+        alert('Calendly aún no está configurado. Se activará el martes después de la reunión con el dueño.');
+        return;
+      }
+
+      // Carga el CSS de Calendly si no está presente
+      if (!document.getElementById('calendly-css')) {
+        var link = document.createElement('link');
+        link.id = 'calendly-css';
+        link.rel = 'stylesheet';
+        link.href = 'https://assets.calendly.com/assets/external/widget.css';
+        document.head.appendChild(link);
+      }
+
+      // Carga el script de Calendly si no está presente, luego abre el popup
+      if (!window.Calendly) {
+        var script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.onload = function() { lanzarCalendly(calendlyUrl); };
+        document.head.appendChild(script);
+      } else {
+        lanzarCalendly(calendlyUrl);
+      }
+    }
+
+    // Abre el popup de Calendly y cierra nuestro modal
+    function lanzarCalendly(url) {
+      closeReserveModal();
+      Calendly.initPopupWidget({ url: url });
+    }
+
+    // Escucha el evento de reserva completada en Calendly → redirige a Stripe
+    window.addEventListener('message', function(e) {
+      if (e.origin !== 'https://calendly.com') return;
+      if (!e.data || e.data.event !== 'calendly.event_scheduled') return;
+
+      var cfg = PIENEZZA_CONFIG;
+      var stripeUrl = modalSelectedPkg === '4hr' ? cfg.stripeUrl4hr : cfg.stripeUrl6hr;
+
+      if (stripeUrl.indexOf('REPLACE_') === 0) {
+        alert('¡Reserva confirmada en Calendly! El pago online se activará el martes.');
+        return;
+      }
+
+      // Pasa el ID del invitee como referencia a Stripe
+      var payload = e.data.payload || {};
+      var inviteeUri = (payload.invitee && payload.invitee.uri) || '';
+      var refId = inviteeUri ? inviteeUri.split('/').pop() : '';
+      var finalUrl = stripeUrl + (refId ? '?client_reference_id=' + encodeURIComponent(refId) : '');
+      window.location.href = finalUrl;
+    });
+
+    // Tecla Escape cierra el modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeReserveModal();
+    });
+
+    // ─── INICIALIZA DATOS DE CONTACTO DESDE config.js ───────────────
+    (function initContacto() {
+      var cfg = PIENEZZA_CONFIG;
+
+      // Actualiza href y texto en todos los elementos con data-contact="phone"
+      document.querySelectorAll('[data-contact="phone"]').forEach(function(el) {
+        el.href = 'tel:' + cfg.contactPhone.replace(/\D/g, '');
+        var txt = el.querySelector('[data-contact-text="phone"]');
+        if (txt) txt.textContent = cfg.contactPhoneDisplay;
+      });
+
+      // Actualiza href en todos los elementos con data-contact="email"
+      document.querySelectorAll('[data-contact="email"]').forEach(function(el) {
+        el.href = 'mailto:' + cfg.contactEmail;
+      });
+
+      // Inicializa el botón de WhatsApp del modal con el paquete por defecto
+      actualizarBtnWhatsApp();
+    })();
+  </script>
+
 </body>
 </html>
