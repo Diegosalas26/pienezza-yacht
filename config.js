@@ -8,7 +8,7 @@ const PIENEZZA_CONFIG = {
 
   // ============ WHATSAPP ============
   // Formato: código de país + número, sin espacios, sin +
-  whatsappNumber: "15624756245",
+  whatsappNumber: "16452073161",
   whatsappMessage: "Hi! I'd like to book a charter on Pienezza Yacht",
 
   // ============ CALENDLY ============
@@ -25,8 +25,8 @@ const PIENEZZA_CONFIG = {
 
   // ============ EMAIL & TELÉFONO ============
   contactEmail: "info@pienezzayacht.com",
-  contactPhone: "+15624756245",
-  contactPhoneDisplay: "+1 (562) 475-6245",
+  contactPhone: "+16452073161",
+  contactPhoneDisplay: "+1 (645) 207-3161",
 
   // ============ PAQUETES ============
   packages: {
