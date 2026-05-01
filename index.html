@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pienezza Yacht — Private Charter · Miami</title>
-  <meta name="description" content="Private yacht charter in Miami. Up to 12 guests. Biscayne Bay, the Sandbar, and beyond. Est. MMXXIV.">
+  <meta name="description" content="Private yacht charter in Miami. Up to 13 guests. Biscayne Bay, the Sandbar, and beyond. Est. MMXXIV.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -514,7 +514,15 @@
     }
     .rate-unit {
       font-size: 10px; letter-spacing: 0.25em; color: rgba(245,240,232,0.3);
-      text-transform: uppercase; margin-bottom: 36px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .rate-deposit {
+      font-size: 11px; font-weight: 500; color: var(--gold);
+      letter-spacing: 0.04em; margin-bottom: 4px;
+    }
+    .rate-balance {
+      font-size: 10.5px; font-weight: 300; color: rgba(245,240,232,0.35);
+      margin-bottom: 28px;
     }
     .rate-list { list-style: none; margin-bottom: 40px; text-align: left; }
     .rate-list li {
@@ -751,6 +759,10 @@
       font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase;
       color: rgba(14,28,54,0.3); margin-top: 3px;
     }
+    .reserve-pkg-detail {
+      font-size: 9px; font-weight: 400; color: rgba(14,28,54,0.45);
+      margin-top: 8px; line-height: 1.4;
+    }
 
     .reserve-or {
       display: flex; align-items: center; gap: 14px; margin: 0 0 22px;
@@ -915,7 +927,7 @@
           From the Miami River to open water — your yacht, your itinerary, your pace.
         </blockquote>
         <p class="body-text" data-i18n="about_p2">
-          Depart from the Miami River and set course for Monument Island, Marine Stadium, Hobie Beach in Key Biscayne, or anchor in the open bay. Up to 12 guests, 6 hours of pure freedom.
+          Depart from the Miami River and set course for Monument Island, Marine Stadium, Hobie Beach in Key Biscayne, or anchor in the open bay. Up to 13 guests, 6 hours of pure freedom.
         </p>
         <a href="#experiences" class="btn-navy-outline" style="margin-top:40px;" data-i18n="about_cta">See All Experiences</a>
       </div>
@@ -1047,19 +1059,23 @@
       <div class="rates-header reveal">
         <span class="eyebrow" data-i18n="rates_eyebrow">Pricing</span>
         <h2 class="h2" data-i18n-html="rates_h2">Simple, <em>transparent</em></h2>
-        <p class="rates-sub" data-i18n="rates_sub">Captain included. No hidden fees. Up to 12 guests.</p>
+        <p class="rates-sub" data-i18n="rates_sub">Captain included. No hidden fees. Up to 13 guests.</p>
       </div>
       <div class="rates-grid rates-grid-2col">
         <div class="rate-card reveal d1">
           <div class="rate-tag" data-i18n="rate_tag">Charter</div>
           <div class="rate-name" data-i18n="rate_4hr_name">4 Hours</div>
           <div class="rate-price">$800</div>
-          <div class="rate-unit" data-i18n="rate_unit">flat rate</div>
+          <div class="rate-unit" data-i18n="rate_unit">total</div>
+          <div class="rate-deposit">Reserve online with $300 deposit</div>
+          <div class="rate-balance">Remaining balance due on day of charter</div>
           <ul class="rate-list">
-            <li data-i18n="rate_li_guests">Up to 12 guests</li>
+            <li data-i18n="rate_li_guests">Up to 13 guests</li>
             <li data-i18n="rate_li_captain">Captain included</li>
             <li data-i18n="rate_li_ice">Ice &amp; coolers</li>
             <li data-i18n="rate_li_sound">Sound system</li>
+            <li>Sodas</li>
+            <li>Towels</li>
           </ul>
           <a href="#" class="btn-ghost-navy" onclick="event.preventDefault(); openReserveModal('4hr')" data-i18n="rate_reserve_btn">Reserve</a>
         </div>
@@ -1067,12 +1083,16 @@
           <div class="rate-tag" data-i18n="rate_tag">Charter</div>
           <div class="rate-name" data-i18n="rate_6hr_name">6 Hours</div>
           <div class="rate-price">$1,200</div>
-          <div class="rate-unit" data-i18n="rate_unit">flat rate</div>
+          <div class="rate-unit" data-i18n="rate_unit">total</div>
+          <div class="rate-deposit">Reserve online with $300 deposit</div>
+          <div class="rate-balance">Remaining balance due on day of charter</div>
           <ul class="rate-list">
-            <li data-i18n="rate_li_guests">Up to 12 guests</li>
+            <li data-i18n="rate_li_guests">Up to 13 guests</li>
             <li data-i18n="rate_li_captain">Captain included</li>
             <li data-i18n="rate_li_ice">Ice &amp; coolers</li>
             <li data-i18n="rate_li_sound">Sound system</li>
+            <li>Sodas</li>
+            <li>Towels</li>
           </ul>
           <a href="#" class="btn-gold" onclick="event.preventDefault(); openReserveModal('6hr')" data-i18n="rate_reserve_btn">Reserve</a>
         </div>
@@ -1132,7 +1152,7 @@
                 <option value="" data-i18n-option="form_guests_opt0">Select</option>
                 <option data-i18n-option="form_guests_opt1">2–4 guests</option>
                 <option data-i18n-option="form_guests_opt2">5–8 guests</option>
-                <option data-i18n-option="form_guests_opt3">9–12 guests</option>
+                <option data-i18n-option="form_guests_opt3">9–13 guests</option>
               </select>
             </div>
             <div class="fg"><label data-i18n="form_experience_lbl">Experience</label>
@@ -1310,19 +1330,21 @@
       </button>
 
       <span class="reserve-modal-eyebrow" data-i18n="modal_eyebrow">Reserve Your Charter</span>
-      <h2 class="reserve-modal-title" data-i18n-html="modal_title">Choose your<br><em>experience</em></h2>
-      <p class="reserve-modal-sub" data-i18n="modal_sub">Miami River · Up to 12 guests · Captain included</p>
+      <h2 class="reserve-modal-title" data-i18n-html="modal_title">Secure Your Charter</h2>
+      <p class="reserve-modal-sub" data-i18n="modal_sub">$300 deposit to reserve your date</p>
 
       <div class="reserve-pkgs">
         <div class="reserve-pkg" id="modalPkg4hr" onclick="selectPkg('4hr')">
           <div class="reserve-pkg-label" data-i18n="modal_4hr_label">4 Hours</div>
           <div class="reserve-pkg-price">$800</div>
-          <div class="reserve-pkg-unit" data-i18n="modal_unit">flat rate</div>
+          <div class="reserve-pkg-unit" data-i18n="modal_unit">total</div>
+          <div class="reserve-pkg-detail">$300 deposit now + $500 on day of charter</div>
         </div>
         <div class="reserve-pkg selected" id="modalPkg6hr" onclick="selectPkg('6hr')">
           <div class="reserve-pkg-label" data-i18n="modal_6hr_label">6 Hours</div>
           <div class="reserve-pkg-price">$1,200</div>
-          <div class="reserve-pkg-unit" data-i18n="modal_unit">flat rate</div>
+          <div class="reserve-pkg-unit" data-i18n="modal_unit">total</div>
+          <div class="reserve-pkg-detail">$300 deposit now + $900 on day of charter</div>
         </div>
       </div>
 
@@ -1389,57 +1411,12 @@
       document.getElementById('modalBtnWhatsApp').href = url;
     }
 
+    // Redirige al link de depósito de Stripe
     function reservarOnline() {
-      var cfg = PIENEZZA_CONFIG;
-      var calendlyUrl = modalSelectedPkg === '4hr' ? cfg.calendlyUrl4hr : cfg.calendlyUrl6hr;
-
-      if (calendlyUrl.indexOf('REPLACE_') === 0) {
-        alert(PIENEZZA_TRANSLATIONS[getLang()].alert_calendly);
-        return;
-      }
-
-      if (!document.getElementById('calendly-css')) {
-        var link = document.createElement('link');
-        link.id = 'calendly-css';
-        link.rel = 'stylesheet';
-        link.href = 'https://assets.calendly.com/assets/external/widget.css';
-        document.head.appendChild(link);
-      }
-
-      if (!window.Calendly) {
-        var script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.onload = function() { lanzarCalendly(calendlyUrl); };
-        document.head.appendChild(script);
-      } else {
-        lanzarCalendly(calendlyUrl);
-      }
+      window.location.href = PIENEZZA_CONFIG.stripeDepositUrl;
     }
 
-    function lanzarCalendly(url) {
-      closeReserveModal();
-      Calendly.initPopupWidget({ url: url });
-    }
-
-    window.addEventListener('message', function(e) {
-      if (e.origin !== 'https://calendly.com') return;
-      if (!e.data || e.data.event !== 'calendly.event_scheduled') return;
-
-      var cfg = PIENEZZA_CONFIG;
-      var stripeUrl = modalSelectedPkg === '4hr' ? cfg.stripeUrl4hr : cfg.stripeUrl6hr;
-
-      if (stripeUrl.indexOf('REPLACE_') === 0) {
-        alert(PIENEZZA_TRANSLATIONS[getLang()].alert_stripe);
-        return;
-      }
-
-      var payload = e.data.payload || {};
-      var inviteeUri = (payload.invitee && payload.invitee.uri) || '';
-      var refId = inviteeUri ? inviteeUri.split('/').pop() : '';
-      var finalUrl = stripeUrl + (refId ? '?client_reference_id=' + encodeURIComponent(refId) : '');
-      window.location.href = finalUrl;
-    });
-
+    // Tecla Escape cierra el modal
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeReserveModal();
     });

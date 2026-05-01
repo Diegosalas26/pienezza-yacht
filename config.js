@@ -17,11 +17,8 @@ const PIENEZZA_CONFIG = {
   calendlyUrl4hr: "REPLACE_WITH_CALENDLY_4HR_URL",
   calendlyUrl6hr: "REPLACE_WITH_CALENDLY_6HR_URL",
 
-  // ============ STRIPE PAYMENT LINKS ============
-  // Crea los productos en stripe.com → Payment Links y pega las URLs aquí
-  // Ej: https://buy.stripe.com/abc123
-  stripeUrl4hr: "REPLACE_WITH_STRIPE_4HR_URL",
-  stripeUrl6hr: "REPLACE_WITH_STRIPE_6HR_URL",
+  // ============ STRIPE DEPOSIT ============
+  stripeDepositUrl: "https://buy.stripe.com/7sY28q89O7HI38m9htejK00",
 
   // ============ EMAIL & TELÉFONO ============
   contactEmail: "info@pienezzayacht.com",
