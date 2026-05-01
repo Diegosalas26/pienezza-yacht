@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="config.js"></script>
+  <script src="translations.js"></script>
   <style>
     :root {
       --cream:   #F5F0E8;
@@ -46,12 +47,10 @@
     /* ─── LOGO PROPUESTA 04 ─── */
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 
-    /* Nav anchor — thin stroke, white over hero, navy when scrolled */
     .nav-anchor { width: 32px; height: 46px; flex-shrink: 0; }
     .nav-anchor .a-stroke { stroke: rgba(255,255,255,0.95); transition: stroke 450ms var(--ease); }
     nav.solid .nav-anchor .a-stroke { stroke: #0E1C36; }
 
-    /* Vertical divider */
     .logo-div {
       width: 1px; height: 40px; flex-shrink: 0;
       background: rgba(255,255,255,0.3);
@@ -59,7 +58,6 @@
     }
     nav.solid .logo-div { background: rgba(14,28,54,0.2); }
 
-    /* Text lockup */
     .logo-text { display: flex; flex-direction: column; gap: 4px; }
     .logo-pienezza {
       font-family: 'Cormorant Garamond', serif;
@@ -84,7 +82,6 @@
       color: #B8922A; text-transform: uppercase;
     }
 
-    /* 4 nautical flags */
     .logo-flags { display: flex; gap: 2px; align-items: center; }
 
     /* ─── FOOTER WORDMARK ─── */
@@ -123,6 +120,25 @@
       transition: background 250ms var(--ease), transform 300ms var(--ease-spring);
     }
     .nav-reserve:hover { background: var(--navy2); transform: translateY(-1px); }
+
+    /* ─── LANGUAGE TOGGLE ─── */
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { display: flex; align-items: center; gap: 5px; }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      padding: 4px 2px;
+      transition: color 250ms var(--ease);
+    }
+    nav.solid .lang-btn { color: rgba(14,28,54,0.35); }
+    .lang-btn:hover { color: rgba(255,255,255,0.85); }
+    nav.solid .lang-btn:hover { color: var(--navy); }
+    .lang-btn-active { color: rgba(255,255,255,0.9) !important; }
+    nav.solid .lang-btn-active { color: var(--navy) !important; }
+    .lang-sep { font-size: 9px; color: rgba(255,255,255,0.18); user-select: none; }
+    nav.solid .lang-sep { color: rgba(14,28,54,0.18); }
 
     /* hamburger */
     .nav-hamburger {
@@ -619,6 +635,7 @@
       nav { padding: 0 24px; }
       .nav-links, .nav-reserve { display: none; }
       .nav-hamburger { display: flex; }
+      .nav-right { gap: 12px; }
 
       .hero-content { padding: 0 24px; }
       .hero-scroll { display: none; }
@@ -713,7 +730,6 @@
       letter-spacing: 0.05em; margin-bottom: 32px;
     }
 
-    /* Selector de paquete */
     .reserve-pkgs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
     .reserve-pkg {
       padding: 20px 16px; text-align: center; cursor: pointer;
@@ -736,7 +752,6 @@
       color: rgba(14,28,54,0.3); margin-top: 3px;
     }
 
-    /* Divisor */
     .reserve-or {
       display: flex; align-items: center; gap: 14px; margin: 0 0 22px;
     }
@@ -746,7 +761,6 @@
       text-transform: uppercase; color: rgba(14,28,54,0.28); white-space: nowrap;
     }
 
-    /* CTAs del modal */
     .reserve-ctas { display: flex; flex-direction: column; gap: 10px; }
 
     .btn-reserve-online {
@@ -789,33 +803,21 @@
 </head>
 <body>
 
-  <!-- NAV — Propuesta 04 exact -->
+  <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo">
-      <!-- Anchor traced from Propuesta 04 exact proportions -->
       <svg class="nav-anchor" viewBox="-4 0 108 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Ring (top circle, thin stroke only) -->
         <circle cx="50" cy="10" r="9" class="a-stroke" stroke-width="2.4"/>
-        <!-- Shaft: ring bottom → crown -->
         <line x1="50" y1="19" x2="50" y2="104" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
-        <!-- Stock/crossbar at ~30% height, with perpendicular T-caps at each end -->
         <line x1="16" y1="33" x2="84" y2="33" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
         <line x1="16" y1="26" x2="16" y2="40" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
         <line x1="84" y1="26" x2="84" y2="40" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
-        <!-- Left arm: sweeps from crown outward & down, curves back up to fluke -->
         <path d="M50 104 C28 116 4 114 2 94" class="a-stroke" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-        <!-- Left fluke: sharp diagonal tip pointing upper-left -->
         <line x1="2" y1="94" x2="-3" y2="82" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
-        <!-- Right arm: mirror -->
         <path d="M50 104 C72 116 96 114 98 94" class="a-stroke" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-        <!-- Right fluke: sharp diagonal tip pointing upper-right -->
         <line x1="98" y1="94" x2="103" y2="82" class="a-stroke" stroke-width="2.4" stroke-linecap="round"/>
       </svg>
-
-      <!-- Vertical divider -->
       <div class="logo-div"></div>
-
-      <!-- Text: Pienezza + YACHT — EST 2024 + flags -->
       <div class="logo-text">
         <span class="logo-pienezza">Pienezza</span>
         <div class="logo-row2">
@@ -824,37 +826,40 @@
           <span class="logo-est">EST 2024</span>
         </div>
         <div class="logo-flags">
-          <!-- Flag 1: ≡ navy with 2 white stripes -->
           <svg width="13" height="10" viewBox="0 0 13 10"><rect width="13" height="10" fill="#1e3a6e"/><rect y="3" width="13" height="2" fill="#f5f0e8"/><rect y="7" width="13" height="2" fill="#f5f0e8"/></svg>
-          <!-- Flag 2: × red X on white -->
           <svg width="13" height="10" viewBox="0 0 13 10"><rect width="13" height="10" fill="#f5f0e8"/><line x1="1" y1="1" x2="12" y2="9" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="1" x2="1" y2="9" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/></svg>
-          <!-- Flag 3: + navy cross on white -->
           <svg width="13" height="10" viewBox="0 0 13 10"><rect width="13" height="10" fill="#f5f0e8"/><rect x="5" y="0" width="3" height="10" fill="#1e3a6e"/><rect x="0" y="3.5" width="13" height="3" fill="#1e3a6e"/></svg>
-          <!-- Flag 4: diagonal split navy/gold -->
           <svg width="13" height="10" viewBox="0 0 13 10"><polygon points="0,0 13,0 13,10" fill="#B8922A"/><polygon points="0,0 0,10 13,10" fill="#1e3a6e"/></svg>
         </div>
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#vessel">The Yacht</a></li>
-      <li><a href="#experiences">Experiences</a></li>
-      <li><a href="#rates">Rates</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#vessel" data-i18n="nav_vessel">The Yacht</a></li>
+      <li><a href="#experiences" data-i18n="nav_experiences">Experiences</a></li>
+      <li><a href="#rates" data-i18n="nav_rates">Rates</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
     </ul>
-    <a href="#" class="nav-reserve" onclick="event.preventDefault(); openReserveModal(null)">Reserve Now</a>
-    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn lang-btn-active" data-lang="en" onclick="setLang('en')">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+      </div>
+      <a href="#" class="nav-reserve" onclick="event.preventDefault(); openReserveModal(null)" data-i18n="nav_reserve">Reserve Now</a>
+      <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#vessel" onclick="closeMenu()">The Yacht</a>
+    <a href="#vessel" onclick="closeMenu()" data-i18n="nav_vessel">The Yacht</a>
     <div class="mobile-menu-line"></div>
-    <a href="#experiences" onclick="closeMenu()">Experiences</a>
+    <a href="#experiences" onclick="closeMenu()" data-i18n="nav_experiences">Experiences</a>
     <div class="mobile-menu-line"></div>
-    <a href="#rates" onclick="closeMenu()">Rates</a>
+    <a href="#rates" onclick="closeMenu()" data-i18n="nav_rates">Rates</a>
     <div class="mobile-menu-line"></div>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#contact" onclick="closeMenu()" data-i18n="nav_contact">Contact</a>
     <div class="mobile-menu-line"></div>
-    <a href="#" onclick="closeMenu(); openReserveModal(null)">Reserve</a>
+    <a href="#" onclick="closeMenu(); openReserveModal(null)" data-i18n="nav_reserve_mobile">Reserve</a>
   </div>
 
   <!-- HERO -->
@@ -864,32 +869,32 @@
     <div class="hero-content">
       <div class="hero-tag reveal">
         <div class="hero-tag-line"></div>
-        <span class="hero-tag-text">Miami River · Private Charter</span>
+        <span class="hero-tag-text" data-i18n="hero_tag">Miami River · Private Charter</span>
       </div>
-      <h1 class="hero-h1 reveal d1">Private<br><em>Charter</em></h1>
-      <p class="hero-h2 reveal d2">dal mare — from the sea</p>
+      <h1 class="hero-h1 reveal d1" data-i18n-html="hero_h1">Private<br><em>Charter</em></h1>
+      <p class="hero-h2 reveal d2" data-i18n="hero_h2">dal mare — from the sea</p>
       <div class="hero-ctas reveal d3">
         <a href="#" class="btn-dark" onclick="event.preventDefault(); openReserveModal(null)">
-          Book Your Charter
+          <span data-i18n="hero_cta_book">Book Your Charter</span>
           <div class="arrow-box">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M4 2h6v6"/></svg>
           </div>
         </a>
-        <a href="#vessel" class="btn-outline-light">Explore the Yacht</a>
+        <a href="#vessel" class="btn-outline-light" data-i18n="hero_cta_explore">Explore the Yacht</a>
       </div>
     </div>
     <div class="hero-scroll">
       <div class="scroll-bar"></div>
-      <span>Scroll</span>
+      <span data-i18n="hero_scroll">Scroll</span>
     </div>
   </section>
 
   <!-- STATS -->
   <div class="stats-band">
-    <div class="stat reveal"><div class="stat-num">12</div><div class="stat-lbl">Guests Max</div></div>
-    <div class="stat reveal d1"><div class="stat-num">6</div><div class="stat-lbl">Hours Available</div></div>
-    <div class="stat reveal d2"><div class="stat-num">100%</div><div class="stat-lbl">Private</div></div>
-    <div class="stat reveal d3"><div class="stat-num">Miami</div><div class="stat-lbl">South Florida</div></div>
+    <div class="stat reveal"><div class="stat-num">12</div><div class="stat-lbl" data-i18n="stat_guests">Guests Max</div></div>
+    <div class="stat reveal d1"><div class="stat-num">6</div><div class="stat-lbl" data-i18n="stat_hours">Hours Available</div></div>
+    <div class="stat reveal d2"><div class="stat-num">100%</div><div class="stat-lbl" data-i18n="stat_private">Private</div></div>
+    <div class="stat reveal d3"><div class="stat-num">Miami</div><div class="stat-lbl" data-i18n="stat_location">South Florida</div></div>
   </div>
 
   <!-- ABOUT / THE VESSEL -->
@@ -897,22 +902,22 @@
     <div class="about-inner">
       <div class="about-img-col reveal">
         <img src="images/pienezza-tropical-new.jpeg" alt="Pienezza Yacht crystal waters">
-        <div class="about-img-tag">Key Biscayne · Hobie Beach</div>
+        <div class="about-img-tag" data-i18n="about_img_tag">Key Biscayne · Hobie Beach</div>
       </div>
       <div class="about-text-col reveal d2">
-        <span class="eyebrow">The Vessel</span>
-        <h2 class="h2">A private world<br><em>on open water</em></h2>
+        <span class="eyebrow" data-i18n="about_eyebrow">The Vessel</span>
+        <h2 class="h2" data-i18n-html="about_h2">A private world<br><em>on open water</em></h2>
         <div class="gold-line"></div>
-        <p class="body-text">
+        <p class="body-text" data-i18n="about_p1">
           Pienezza — Italian for fullness, abundance. An invitation to experience the sea entirely on your own terms. Every detail aboard has been curated for those who expect the exceptional.
         </p>
-        <blockquote class="about-quote">
+        <blockquote class="about-quote" data-i18n="about_quote">
           From the Miami River to open water — your yacht, your itinerary, your pace.
         </blockquote>
-        <p class="body-text">
+        <p class="body-text" data-i18n="about_p2">
           Depart from the Miami River and set course for Monument Island, Marine Stadium, Hobie Beach in Key Biscayne, or anchor in the open bay. Up to 12 guests, 6 hours of pure freedom.
         </p>
-        <a href="#experiences" class="btn-navy-outline" style="margin-top:40px;">See All Experiences</a>
+        <a href="#experiences" class="btn-navy-outline" style="margin-top:40px;" data-i18n="about_cta">See All Experiences</a>
       </div>
     </div>
   </section>
@@ -920,21 +925,18 @@
   <!-- GALLERY -->
   <section class="gallery" id="gallery">
     <div class="gallery-header reveal">
-      <span class="eyebrow">Gallery</span>
-      <h2 class="h2">On the <em>water</em></h2>
+      <span class="eyebrow" data-i18n="gallery_eyebrow">Gallery</span>
+      <h2 class="h2" data-i18n-html="gallery_h2">On the <em>water</em></h2>
     </div>
     <div class="gallery-grid">
       <div class="g-cell reveal">
         <img src="images/pienezza-gallery-main.jpeg" alt="Pienezza cruising Miami sunset" style="object-position:center center;">
-        
       </div>
       <div class="g-cell reveal d1">
         <img src="images/pienezza-sunset.jpeg" alt="Pienezza at golden sunset Miami">
-        
       </div>
       <div class="g-cell reveal d2">
         <img src="images/pienezza-tropical-new.jpeg" alt="Pienezza crystal clear water" style="object-position:center 40%;">
-        
       </div>
     </div>
     <div style="max-width:1280px;margin:6px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
@@ -954,31 +956,31 @@
   <section class="interior-section">
     <div class="interior-inner">
       <div class="interior-header reveal">
-        <span class="eyebrow">On Board</span>
-        <h2 class="h2">The <em>interior</em></h2>
+        <span class="eyebrow" data-i18n="interior_eyebrow">On Board</span>
+        <h2 class="h2" data-i18n-html="interior_h2">The <em>interior</em></h2>
         <div class="gold-line"></div>
-        <p class="body-text" style="max-width:480px;">A fully equipped cabin with private bedroom, salon lounge, and fly bridge helm — everything you need for the perfect day on the water.</p>
+        <p class="body-text" style="max-width:480px;" data-i18n="interior_p">A fully equipped cabin with private bedroom, salon lounge, and fly bridge helm — everything you need for the perfect day on the water.</p>
       </div>
       <div class="interior-grid">
         <div class="interior-card reveal" onclick="openLightbox(0)">
           <img src="images/interior-salon-new.jpg" alt="Salon lounge" style="object-position:center top;">
           <div class="interior-card-overlay">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-            <span>The Salon</span>
+            <span data-i18n="interior_salon">The Salon</span>
           </div>
         </div>
         <div class="interior-card reveal d1" onclick="openLightbox(1)">
           <img src="images/interior-lounge.jpg" alt="Salon with Miami view">
           <div class="interior-card-overlay">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-            <span>The Lounge</span>
+            <span data-i18n="interior_lounge">The Lounge</span>
           </div>
         </div>
         <div class="interior-card reveal d2" onclick="openLightbox(2)">
           <img src="images/interior-galley.jpg" alt="Galley kitchen">
           <div class="interior-card-overlay">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-            <span>The Galley</span>
+            <span data-i18n="interior_galley">The Galley</span>
           </div>
         </div>
       </div>
@@ -1004,8 +1006,8 @@
   <section class="experiences" id="experiences">
     <div class="exp-inner">
       <div class="exp-header reveal">
-        <span class="eyebrow">On Board</span>
-        <h2 class="h2">Crafted<br><em>experiences</em></h2>
+        <span class="eyebrow" data-i18n="exp_eyebrow">On Board</span>
+        <h2 class="h2" data-i18n-html="exp_h2">Crafted<br><em>experiences</em></h2>
         <div class="gold-line"></div>
       </div>
       <div class="exp-grid">
@@ -1013,17 +1015,17 @@
           <svg class="exp-icon" viewBox="0 0 40 40" fill="none" stroke="#B8922A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 30 Q12 18 20 22 Q28 26 34 14"/><line x1="4" y1="36" x2="36" y2="36"/><path d="M20 22 L20 8 L28 16"/>
           </svg>
-          <h3 class="exp-name">Full-Day Charter</h3>
-          <p class="exp-desc">Complete exclusive access — Monument Island, Hobie Beach, Marine Stadium by sea. Your vessel, your itinerary, your rules. Completely private.</p>
-          <span class="exp-meta">4–6 Hours · Fully Customizable</span>
+          <h3 class="exp-name" data-i18n="exp1_name">Full-Day Charter</h3>
+          <p class="exp-desc" data-i18n="exp1_desc">Complete exclusive access — Monument Island, Hobie Beach, Marine Stadium by sea. Your vessel, your itinerary, your rules. Completely private.</p>
+          <span class="exp-meta" data-i18n="exp1_meta">4–6 Hours · Fully Customizable</span>
         </div>
         <div class="exp-card reveal d2">
           <svg class="exp-icon" viewBox="0 0 40 40" fill="none" stroke="#B8922A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 4 L22.9 13.1 L32.4 13.1 L24.8 18.6 L27.6 27.7 L20 22.2 L12.4 27.7 L15.2 18.6 L7.6 13.1 L17.1 13.1 Z"/>
           </svg>
-          <h3 class="exp-name">Special Events</h3>
-          <p class="exp-desc">Birthdays, anniversaries, corporate outings. Pienezza becomes your private waterborne venue — fully decorated, curated, extraordinary.</p>
-          <span class="exp-meta">Custom Duration · Full Service</span>
+          <h3 class="exp-name" data-i18n="exp2_name">Special Events</h3>
+          <p class="exp-desc" data-i18n="exp2_desc">Birthdays, anniversaries, corporate outings. Pienezza becomes your private waterborne venue — fully decorated, curated, extraordinary.</p>
+          <span class="exp-meta" data-i18n="exp2_meta">Custom Duration · Full Service</span>
         </div>
         <div class="exp-card reveal d3">
           <svg class="exp-icon" viewBox="0 0 40 40" fill="none" stroke="#B8922A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
@@ -1031,9 +1033,9 @@
             <path d="M14 16V12a2 2 0 012-2h8a2 2 0 012 2v4"/>
             <line x1="8" y1="26" x2="32" y2="26"/>
           </svg>
-          <h3 class="exp-name">Corporate</h3>
-          <p class="exp-desc">Impress clients or reward your team away from any conference room. Bespoke packages for groups — fully private, impeccably executed on the water.</p>
-          <span class="exp-meta">Custom Duration · Group Packages</span>
+          <h3 class="exp-name" data-i18n="exp3_name">Corporate</h3>
+          <p class="exp-desc" data-i18n="exp3_desc">Impress clients or reward your team away from any conference room. Bespoke packages for groups — fully private, impeccably executed on the water.</p>
+          <span class="exp-meta" data-i18n="exp3_meta">Custom Duration · Group Packages</span>
         </div>
       </div>
     </div>
@@ -1043,36 +1045,36 @@
   <section class="rates" id="rates">
     <div class="rates-inner">
       <div class="rates-header reveal">
-        <span class="eyebrow">Pricing</span>
-        <h2 class="h2">Simple, <em>transparent</em></h2>
-        <p class="rates-sub">Captain included. No hidden fees. Up to 12 guests.</p>
+        <span class="eyebrow" data-i18n="rates_eyebrow">Pricing</span>
+        <h2 class="h2" data-i18n-html="rates_h2">Simple, <em>transparent</em></h2>
+        <p class="rates-sub" data-i18n="rates_sub">Captain included. No hidden fees. Up to 12 guests.</p>
       </div>
       <div class="rates-grid rates-grid-2col">
         <div class="rate-card reveal d1">
-          <div class="rate-tag">Charter</div>
-          <div class="rate-name">4 Hours</div>
+          <div class="rate-tag" data-i18n="rate_tag">Charter</div>
+          <div class="rate-name" data-i18n="rate_4hr_name">4 Hours</div>
           <div class="rate-price">$800</div>
-          <div class="rate-unit">flat rate</div>
+          <div class="rate-unit" data-i18n="rate_unit">flat rate</div>
           <ul class="rate-list">
-            <li>Up to 12 guests</li>
-            <li>Captain included</li>
-            <li>Ice &amp; coolers</li>
-            <li>Sound system</li>
+            <li data-i18n="rate_li_guests">Up to 12 guests</li>
+            <li data-i18n="rate_li_captain">Captain included</li>
+            <li data-i18n="rate_li_ice">Ice &amp; coolers</li>
+            <li data-i18n="rate_li_sound">Sound system</li>
           </ul>
-          <a href="#" class="btn-ghost-navy" onclick="event.preventDefault(); openReserveModal('4hr')">Reserve</a>
+          <a href="#" class="btn-ghost-navy" onclick="event.preventDefault(); openReserveModal('4hr')" data-i18n="rate_reserve_btn">Reserve</a>
         </div>
         <div class="rate-card featured reveal d2">
-          <div class="rate-tag">Charter</div>
-          <div class="rate-name">6 Hours</div>
+          <div class="rate-tag" data-i18n="rate_tag">Charter</div>
+          <div class="rate-name" data-i18n="rate_6hr_name">6 Hours</div>
           <div class="rate-price">$1,200</div>
-          <div class="rate-unit">flat rate</div>
+          <div class="rate-unit" data-i18n="rate_unit">flat rate</div>
           <ul class="rate-list">
-            <li>Up to 12 guests</li>
-            <li>Captain included</li>
-            <li>Ice &amp; coolers</li>
-            <li>Sound system</li>
+            <li data-i18n="rate_li_guests">Up to 12 guests</li>
+            <li data-i18n="rate_li_captain">Captain included</li>
+            <li data-i18n="rate_li_ice">Ice &amp; coolers</li>
+            <li data-i18n="rate_li_sound">Sound system</li>
           </ul>
-          <a href="#" class="btn-gold" onclick="event.preventDefault(); openReserveModal('6hr')">Reserve</a>
+          <a href="#" class="btn-gold" onclick="event.preventDefault(); openReserveModal('6hr')" data-i18n="rate_reserve_btn">Reserve</a>
         </div>
       </div>
     </div>
@@ -1080,7 +1082,7 @@
 
   <!-- TESTIMONIALS -->
   <section class="testimonial">
-    <span class="eyebrow reveal" style="justify-content:center;">Guest Reviews</span>
+    <span class="eyebrow reveal" style="justify-content:center;" data-i18n="testimonials_eyebrow">Guest Reviews</span>
     <div class="t-inner reveal d1">
       <p class="t-q" id="tQ">Absolutely incredible experience. The boat was immaculate, the captain professional, and the Miami sunset was something we will never forget.</p>
       <p class="t-author" id="tA">— Maria &amp; Carlos · Miami Beach</p>
@@ -1096,10 +1098,10 @@
   <section class="booking" id="contact">
     <div class="booking-inner">
       <div class="booking-left reveal">
-        <span class="eyebrow">Reserve</span>
-        <h2 class="h2">Plan your<br><em>escape</em></h2>
+        <span class="eyebrow" data-i18n="booking_eyebrow">Reserve</span>
+        <h2 class="h2" data-i18n-html="booking_h2">Plan your<br><em>escape</em></h2>
         <div class="gold-line"></div>
-        <p class="body-text">Send your details and we confirm your charter within 24 hours. For immediate availability, reach us directly below.</p>
+        <p class="body-text" data-i18n="booking_p">Send your details and we confirm your charter within 24 hours. For immediate availability, reach us directly below.</p>
         <div class="contact-items">
           <a href="tel:+15624756245" class="c-row" data-contact="phone">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.82 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
@@ -1111,7 +1113,7 @@
           </a>
           <div class="c-row" style="cursor:default;">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            Brickell · Miami, Florida
+            <span data-i18n="contact_location">Brickell · Miami, Florida</span>
           </div>
         </div>
       </div>
@@ -1120,21 +1122,31 @@
           <form class="form-fields" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="3b88d6d2-b9d5-4c53-b3d0-87b8d68292aa">
             <input type="hidden" name="subject" value="Pienezza Yacht — Charter Inquiry">
-            <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Sofia" required></div>
-            <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="Marino" required></div>
-            <div class="fg full"><label>Email</label><input type="email" name="email" placeholder="sofia@email.com" required></div>
-            <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="+1 (305) 000-0000"></div>
-            <div class="fg"><label>Preferred Date</label><input type="date" name="date"></div>
-            <div class="fg"><label>Guests</label>
-              <select name="guests"><option value="">Select</option><option>2–4 guests</option><option>5–8 guests</option><option>9–12 guests</option></select>
+            <div class="fg"><label data-i18n="form_first_name">First Name</label><input type="text" name="first_name" placeholder="Sofia" data-i18n-placeholder="form_ph_first" required></div>
+            <div class="fg"><label data-i18n="form_last_name">Last Name</label><input type="text" name="last_name" placeholder="Marino" data-i18n-placeholder="form_ph_last" required></div>
+            <div class="fg full"><label data-i18n="form_email">Email</label><input type="email" name="email" placeholder="sofia@email.com" data-i18n-placeholder="form_ph_email" required></div>
+            <div class="fg"><label data-i18n="form_phone">Phone</label><input type="tel" name="phone" placeholder="+1 (305) 000-0000" data-i18n-placeholder="form_ph_phone"></div>
+            <div class="fg"><label data-i18n="form_date">Preferred Date</label><input type="date" name="date"></div>
+            <div class="fg"><label data-i18n="form_guests_lbl">Guests</label>
+              <select name="guests">
+                <option value="" data-i18n-option="form_guests_opt0">Select</option>
+                <option data-i18n-option="form_guests_opt1">2–4 guests</option>
+                <option data-i18n-option="form_guests_opt2">5–8 guests</option>
+                <option data-i18n-option="form_guests_opt3">9–12 guests</option>
+              </select>
             </div>
-            <div class="fg"><label>Experience</label>
-              <select name="experience"><option value="">Charter type</option><option>Full-Day Charter (4–6 hrs)</option><option>Special Event</option><option>Corporate</option></select>
+            <div class="fg"><label data-i18n="form_experience_lbl">Experience</label>
+              <select name="experience">
+                <option value="" data-i18n-option="form_exp_opt0">Charter type</option>
+                <option data-i18n-option="form_exp_opt1">Full-Day Charter (4–6 hrs)</option>
+                <option data-i18n-option="form_exp_opt2">Special Event</option>
+                <option data-i18n-option="form_exp_opt3">Corporate</option>
+              </select>
             </div>
-            <div class="fg full"><label>Message</label><textarea name="message" placeholder="Tell us about your ideal experience..."></textarea></div>
-            <button type="submit" class="form-submit">Send Inquiry</button>
+            <div class="fg full"><label data-i18n="form_message_lbl">Message</label><textarea name="message" placeholder="Tell us about your ideal experience..." data-i18n-placeholder="form_ph_message"></textarea></div>
+            <button type="submit" class="form-submit" data-i18n="form_submit">Send Inquiry</button>
           </form>
-          <p class="form-note">We respond within 24 hours · No commitment required</p>
+          <p class="form-note" data-i18n="form_note">We respond within 24 hours · No commitment required</p>
         </div>
       </div>
     </div>
@@ -1143,7 +1155,6 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-top">
-      <!-- Footer: Propuesta 04 horizontal lockup, cream version -->
       <div>
         <div class="footer-wordmark">
           <span class="fw-pienezza">Pienezza</span>
@@ -1159,14 +1170,36 @@
             <svg width="16" height="12" viewBox="0 0 16 12"><polygon points="0,0 16,0 16,12" fill="#B8922A"/><polygon points="0,0 0,12 16,12" fill="#1e3a6e"/></svg>
           </div>
         </div>
-        <p class="f-brand-p">Private yacht charter in Miami. Curated experiences on the water for those who seek the exceptional.</p>
+        <p class="f-brand-p" data-i18n="footer_brand_p">Private yacht charter in Miami. Curated experiences on the water for those who seek the exceptional.</p>
       </div>
-      <div class="f-col"><h4>Navigate</h4><ul><li><a href="#vessel">The Yacht</a></li><li><a href="#experiences">Experiences</a></li><li><a href="#rates">Rates</a></li><li><a href="#contact">Contact</a></li></ul></div>
-      <div class="f-col"><h4>Experiences</h4><ul><li><a href="#contact">Full-Day Charter</a></li><li><a href="#contact">Special Events</a></li><li><a href="#contact">Corporate</a></li></ul></div>
-      <div class="f-col"><h4>Contact</h4><ul><li><a href="tel:+15624756245" data-contact="phone"><span data-contact-text="phone">+1 (562) 475-6245</span></a></li><li><a href="mailto:info@pienezzayacht.com" data-contact="email">info@pienezzayacht.com</a></li><li><a href="#">Brickell, Miami FL</a></li></ul></div>
+      <div class="f-col">
+        <h4 data-i18n="footer_nav_title">Navigate</h4>
+        <ul>
+          <li><a href="#vessel" data-i18n="footer_nav_vessel">The Yacht</a></li>
+          <li><a href="#experiences" data-i18n="footer_nav_exp">Experiences</a></li>
+          <li><a href="#rates" data-i18n="footer_nav_rates">Rates</a></li>
+          <li><a href="#contact" data-i18n="footer_nav_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4 data-i18n="footer_exp_title">Experiences</h4>
+        <ul>
+          <li><a href="#contact" data-i18n="footer_exp1">Full-Day Charter</a></li>
+          <li><a href="#contact" data-i18n="footer_exp2">Special Events</a></li>
+          <li><a href="#contact" data-i18n="footer_exp3">Corporate</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4 data-i18n="footer_contact_title">Contact</h4>
+        <ul>
+          <li><a href="tel:+15624756245" data-contact="phone"><span data-contact-text="phone">+1 (562) 475-6245</span></a></li>
+          <li><a href="mailto:info@pienezzayacht.com" data-contact="email">info@pienezzayacht.com</a></li>
+          <li><a href="#" data-i18n="footer_location">Brickell, Miami FL</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
-      <p class="f-copy">© MMXXVI Pienezza Yacht · All rights reserved · Miami, Florida</p>
+      <p class="f-copy" data-i18n="footer_copy">© MMXXVI Pienezza Yacht · All rights reserved · Miami, Florida</p>
       <div class="f-flags">
         <svg width="16" height="16" viewBox="0 0 16 16"><rect width="8" height="8" fill="#1e2d5a"/><rect x="8" width="8" height="8" fill="#b8922a"/><rect y="8" width="8" height="8" fill="#b8922a"/><rect x="8" y="8" width="8" height="8" fill="#1e2d5a"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" fill="#1e2d5a"/><polygon points="8,2 14,14 2,14" fill="#b8922a"/></svg>
@@ -1177,20 +1210,20 @@
 
   <script>
     // Hero bg
-    const heroBg = document.getElementById('heroBg');
-    const hi = new Image();
-    hi.onload = () => requestAnimationFrame(() => heroBg.classList.add('ready'));
+    var heroBg = document.getElementById('heroBg');
+    var hi = new Image();
+    hi.onload = function() { requestAnimationFrame(function() { heroBg.classList.add('ready'); }); };
     hi.src = 'images/pienezza-sunset.jpeg';
 
     // Nav
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60), { passive: true });
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() { nav.classList.toggle('solid', scrollY > 60); }, { passive: true });
 
     // Hamburger
-    const ham = document.getElementById('hamburger');
-    const mm = document.getElementById('mobileMenu');
-    let open = false;
-    ham.addEventListener('click', () => {
+    var ham = document.getElementById('hamburger');
+    var mm = document.getElementById('mobileMenu');
+    var open = false;
+    ham.addEventListener('click', function() {
       open = !open;
       ham.classList.toggle('open', open);
       mm.classList.toggle('open', open);
@@ -1199,41 +1232,40 @@
     function closeMenu() { open=false; ham.classList.remove('open'); mm.classList.remove('open'); document.body.style.overflow=''; }
 
     // Reveal on scroll
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    // Hero reveals immediately
-    document.querySelectorAll('.hero .reveal').forEach((el, i) => setTimeout(() => el.classList.add('in'), 200 + i*150));
+    document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+    document.querySelectorAll('.hero .reveal').forEach(function(el, i) { setTimeout(function() { el.classList.add('in'); }, 200 + i*150); });
 
-    // Testimonials
-    const ts = [
+    // Testimonials — use var so translations.js can access window.ts / window.ct
+    var ts = [
       { q: 'Absolutely incredible experience. The boat was immaculate, the captain professional, and the Miami sunset was something we will never forget.', a: '— Maria & Carlos · Miami Beach' },
       { q: 'We celebrated our anniversary on Pienezza and it exceeded every expectation. The atmosphere felt truly elevated, truly special.', a: '— Valentina R. · Brickell' },
       { q: 'Used Pienezza for a corporate event and our clients were blown away. Professional from first email to docking back. Highly recommend.', a: '— Rafael M. · Coral Gables' }
     ];
-    let ct = 0;
-    const tQ = document.getElementById('tQ'), tA = document.getElementById('tA');
+    var ct = 0;
+    var tQ = document.getElementById('tQ'), tA = document.getElementById('tA');
     function goT(i) {
       tQ.classList.add('fading'); tA.classList.add('fading');
-      setTimeout(() => {
+      setTimeout(function() {
         ct = i; tQ.textContent = ts[i].q; tA.textContent = ts[i].a;
         tQ.classList.remove('fading'); tA.classList.remove('fading');
-        document.querySelectorAll('.t-dot').forEach((d,j) => d.classList.toggle('on', j===i));
+        document.querySelectorAll('.t-dot').forEach(function(d,j) { d.classList.toggle('on', j===i); });
       }, 360);
     }
-    setInterval(() => goT((ct+1) % ts.length), 5500);
+    setInterval(function() { goT((ct+1) % ts.length); }, 5500);
 
-    // Lightbox
-    const lbPhotos = [
+    // Lightbox — use var so translations.js can access window.lbPhotos / window.lbIndex
+    var lbPhotos = [
       { src: 'images/interior-salon-new.jpg', caption: 'The Salon' },
       { src: 'images/interior-lounge.jpg',    caption: 'The Lounge' },
       { src: 'images/interior-galley.jpg',    caption: 'The Galley' },
     ];
-    let lbIndex = 0;
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImg');
-    const lbCap = document.getElementById('lbCaption');
+    var lbIndex = 0;
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lbImg');
+    var lbCap = document.getElementById('lbCaption');
 
     function openLightbox(i) {
       lbIndex = i;
@@ -1249,14 +1281,14 @@
     function moveLightbox(dir) {
       lbIndex = (lbIndex + dir + lbPhotos.length) % lbPhotos.length;
       lbImg.style.opacity = 0;
-      setTimeout(() => {
+      setTimeout(function() {
         lbImg.src = lbPhotos[lbIndex].src;
         lbCap.textContent = lbPhotos[lbIndex].caption;
         lbImg.style.opacity = 1;
       }, 180);
     }
     lbImg.style.transition = 'opacity 180ms';
-    document.addEventListener('keydown', e => {
+    document.addEventListener('keydown', function(e) {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') moveLightbox(-1);
@@ -1271,56 +1303,49 @@
     <div class="reserve-modal-overlay" onclick="closeReserveModal()"></div>
     <div class="reserve-modal-box">
 
-      <!-- Botón de cerrar -->
       <button class="reserve-modal-close" onclick="closeReserveModal()">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0E1C36" stroke-width="1.8" stroke-linecap="round">
           <line x1="2" y1="2" x2="14" y2="14"/><line x1="14" y1="2" x2="2" y2="14"/>
         </svg>
       </button>
 
-      <!-- Encabezado -->
-      <span class="reserve-modal-eyebrow">Reserve Your Charter</span>
-      <h2 class="reserve-modal-title">Choose your<br><em>experience</em></h2>
-      <p class="reserve-modal-sub">Miami River · Up to 12 guests · Captain included</p>
+      <span class="reserve-modal-eyebrow" data-i18n="modal_eyebrow">Reserve Your Charter</span>
+      <h2 class="reserve-modal-title" data-i18n-html="modal_title">Choose your<br><em>experience</em></h2>
+      <p class="reserve-modal-sub" data-i18n="modal_sub">Miami River · Up to 12 guests · Captain included</p>
 
-      <!-- Selector de paquete -->
       <div class="reserve-pkgs">
         <div class="reserve-pkg" id="modalPkg4hr" onclick="selectPkg('4hr')">
-          <div class="reserve-pkg-label">4 Hours</div>
+          <div class="reserve-pkg-label" data-i18n="modal_4hr_label">4 Hours</div>
           <div class="reserve-pkg-price">$800</div>
-          <div class="reserve-pkg-unit">flat rate</div>
+          <div class="reserve-pkg-unit" data-i18n="modal_unit">flat rate</div>
         </div>
         <div class="reserve-pkg selected" id="modalPkg6hr" onclick="selectPkg('6hr')">
-          <div class="reserve-pkg-label">6 Hours</div>
+          <div class="reserve-pkg-label" data-i18n="modal_6hr_label">6 Hours</div>
           <div class="reserve-pkg-price">$1,200</div>
-          <div class="reserve-pkg-unit">flat rate</div>
+          <div class="reserve-pkg-unit" data-i18n="modal_unit">flat rate</div>
         </div>
       </div>
 
-      <!-- Divisor -->
-      <div class="reserve-or"><span>How would you like to reserve?</span></div>
+      <div class="reserve-or"><span data-i18n="modal_how">How would you like to reserve?</span></div>
 
-      <!-- CTAs -->
       <div class="reserve-ctas">
-        <!-- Opción A: Calendly → Stripe -->
         <button class="btn-reserve-online" onclick="reservarOnline()">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <rect x="1" y="2" width="13" height="12" rx="1.5"/>
             <path d="M1 6h13"/><path d="M5 1v3M10 1v3"/>
           </svg>
-          Reserve &amp; Pay Online
+          <span data-i18n="modal_btn_online">Reserve &amp; Pay Online</span>
         </button>
 
-        <!-- Opción B: WhatsApp -->
         <a class="btn-reserve-whatsapp" id="modalBtnWhatsApp" href="#" target="_blank" rel="noopener noreferrer">
           <svg width="17" height="17" viewBox="0 0 17 17" fill="#25D366">
             <path d="M8.5 0C3.81 0 0 3.81 0 8.5c0 1.5.39 2.91 1.08 4.14L0 17l4.49-1.17A8.47 8.47 0 008.5 17C13.19 17 17 13.19 17 8.5S13.19 0 8.5 0zm4.38 11.67c-.18.51-1.07.99-1.46 1.05-.36.05-.81.07-1.3-.08-.3-.1-.68-.22-1.17-.43-2.06-.89-3.4-2.96-3.51-3.09-.1-.13-.85-1.13-.85-2.17 0-1.03.54-1.53.73-1.74.19-.21.41-.26.55-.26h.4c.13 0 .3-.05.47.36.18.42.61 1.49.66 1.59.06.1.1.24.02.37-.08.14-.11.22-.22.34l-.32.38c-.1.1-.21.22-.1.43.12.21.53.88 1.14 1.43.77.7 1.43.92 1.64 1.01.21.1.33.08.45-.05l.65-.76c.12-.13.25-.1.42-.06.17.05 1.07.5 1.25.6.18.09.3.13.35.21.05.07.05.45-.13.97z"/>
           </svg>
-          Reserve via WhatsApp
+          <span data-i18n="modal_btn_whatsapp">Reserve via WhatsApp</span>
         </a>
       </div>
 
-      <p class="reserve-footnote">We confirm within 24 hours &nbsp;·&nbsp; No commitment required</p>
+      <p class="reserve-footnote" data-i18n="modal_footnote">We confirm within 24 hours · No commitment required</p>
     </div>
   </div>
 
@@ -1329,10 +1354,8 @@
     // SISTEMA DE RESERVAS — PIENEZZA YACHT
     // ═══════════════════════════════════════════════════════════════════
 
-    // Paquete seleccionado en el modal ('4hr' o '6hr')
     var modalSelectedPkg = '6hr';
 
-    // Abre el modal, opcionalmente pre-seleccionando un paquete
     function openReserveModal(pkg) {
       modalSelectedPkg = pkg || '6hr';
       actualizarSeleccionPkg(modalSelectedPkg);
@@ -1341,26 +1364,22 @@
       document.body.style.overflow = 'hidden';
     }
 
-    // Cierra el modal
     function closeReserveModal() {
       document.getElementById('reserveModal').classList.remove('open');
       document.body.style.overflow = '';
     }
 
-    // Selecciona un paquete y actualiza la UI
     function selectPkg(pkg) {
       modalSelectedPkg = pkg;
       actualizarSeleccionPkg(pkg);
       actualizarBtnWhatsApp();
     }
 
-    // Actualiza el estado visual de los package cards
     function actualizarSeleccionPkg(pkg) {
       document.getElementById('modalPkg4hr').classList.toggle('selected', pkg === '4hr');
       document.getElementById('modalPkg6hr').classList.toggle('selected', pkg === '6hr');
     }
 
-    // Genera el link de WhatsApp con el paquete seleccionado e incluye precio
     function actualizarBtnWhatsApp() {
       var cfg = PIENEZZA_CONFIG;
       var pkg = modalSelectedPkg === '4hr' ? cfg.packages.fourHour : cfg.packages.sixHour;
@@ -1370,18 +1389,15 @@
       document.getElementById('modalBtnWhatsApp').href = url;
     }
 
-    // Inicia el flujo de reserva online: carga Calendly y abre el popup
     function reservarOnline() {
       var cfg = PIENEZZA_CONFIG;
       var calendlyUrl = modalSelectedPkg === '4hr' ? cfg.calendlyUrl4hr : cfg.calendlyUrl6hr;
 
-      // Avisa si el URL todavía es un placeholder
       if (calendlyUrl.indexOf('REPLACE_') === 0) {
-        alert('Calendly aún no está configurado. Se activará el martes después de la reunión con el dueño.');
+        alert(PIENEZZA_TRANSLATIONS[getLang()].alert_calendly);
         return;
       }
 
-      // Carga el CSS de Calendly si no está presente
       if (!document.getElementById('calendly-css')) {
         var link = document.createElement('link');
         link.id = 'calendly-css';
@@ -1390,7 +1406,6 @@
         document.head.appendChild(link);
       }
 
-      // Carga el script de Calendly si no está presente, luego abre el popup
       if (!window.Calendly) {
         var script = document.createElement('script');
         script.src = 'https://assets.calendly.com/assets/external/widget.js';
@@ -1401,13 +1416,11 @@
       }
     }
 
-    // Abre el popup de Calendly y cierra nuestro modal
     function lanzarCalendly(url) {
       closeReserveModal();
       Calendly.initPopupWidget({ url: url });
     }
 
-    // Escucha el evento de reserva completada en Calendly → redirige a Stripe
     window.addEventListener('message', function(e) {
       if (e.origin !== 'https://calendly.com') return;
       if (!e.data || e.data.event !== 'calendly.event_scheduled') return;
@@ -1416,11 +1429,10 @@
       var stripeUrl = modalSelectedPkg === '4hr' ? cfg.stripeUrl4hr : cfg.stripeUrl6hr;
 
       if (stripeUrl.indexOf('REPLACE_') === 0) {
-        alert('¡Reserva confirmada en Calendly! El pago online se activará el martes.');
+        alert(PIENEZZA_TRANSLATIONS[getLang()].alert_stripe);
         return;
       }
 
-      // Pasa el ID del invitee como referencia a Stripe
       var payload = e.data.payload || {};
       var inviteeUri = (payload.invitee && payload.invitee.uri) || '';
       var refId = inviteeUri ? inviteeUri.split('/').pop() : '';
@@ -1428,7 +1440,6 @@
       window.location.href = finalUrl;
     });
 
-    // Tecla Escape cierra el modal
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeReserveModal();
     });
@@ -1437,19 +1448,16 @@
     (function initContacto() {
       var cfg = PIENEZZA_CONFIG;
 
-      // Actualiza href y texto en todos los elementos con data-contact="phone"
       document.querySelectorAll('[data-contact="phone"]').forEach(function(el) {
         el.href = 'tel:' + cfg.contactPhone.replace(/\D/g, '');
         var txt = el.querySelector('[data-contact-text="phone"]');
         if (txt) txt.textContent = cfg.contactPhoneDisplay;
       });
 
-      // Actualiza href en todos los elementos con data-contact="email"
       document.querySelectorAll('[data-contact="email"]').forEach(function(el) {
         el.href = 'mailto:' + cfg.contactEmail;
       });
 
-      // Inicializa el botón de WhatsApp del modal con el paquete por defecto
       actualizarBtnWhatsApp();
     })();
   </script>
