@@ -1429,7 +1429,14 @@
       var url = modalSelectedPkg === '4hr'
         ? PIENEZZA_CONFIG.calendlyUrl4hr
         : PIENEZZA_CONFIG.calendlyUrl6hr;
-      window.open(url, '_blank');
+      console.log('[Pienezza] reservarOnline — pkg:', modalSelectedPkg, '| url:', url);
+      var a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
 
     // Tecla Escape cierra el modal
