@@ -308,6 +308,15 @@
       text-transform: uppercase; color: rgba(245,240,232,0.4);
     }
 
+    /* ─── NUMERIC FONT — only digits/prices get Inter ─── */
+    .numeric-font {
+      font-family: Inter, Arial, Helvetica, sans-serif !important;
+      font-style: normal !important;
+      font-weight: 400 !important;
+      letter-spacing: normal !important;
+      line-height: inherit;
+    }
+
     /* ─── SHARED SECTION STYLES ─── */
     .eyebrow {
       display: inline-flex; align-items: center; gap: 12px;
@@ -939,7 +948,7 @@
         <blockquote class="about-quote" data-i18n="about_quote">
           From the Miami River to open water — your yacht, your itinerary, your pace.
         </blockquote>
-        <p class="body-text" data-i18n="about_p2">
+        <p class="body-text" data-i18n-html="about_p2">
           Depart from the Miami River and set course for Monument Island, Marine Stadium, Hobie Beach in Key Biscayne, or anchor in the open bay. Up to 13 guests, 6 hours of pure freedom.
         </p>
         <a href="#experiences" class="btn-navy-outline" style="margin-top:40px;" data-i18n="about_cta">See All Experiences</a>
@@ -1042,7 +1051,7 @@
           </svg>
           <h3 class="exp-name" data-i18n="exp1_name">Full-Day Charter</h3>
           <p class="exp-desc" data-i18n="exp1_desc">Complete exclusive access — Monument Island, Hobie Beach, Marine Stadium by sea. Your vessel, your itinerary, your rules. Completely private.</p>
-          <span class="exp-meta" data-i18n="exp1_meta">4–6 Hours · Fully Customizable</span>
+          <span class="exp-meta" data-i18n-html="exp1_meta">4–6 Hours · Fully Customizable</span>
         </div>
         <div class="exp-card reveal d2">
           <svg class="exp-icon" viewBox="0 0 40 40" fill="none" stroke="#B8922A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
@@ -1072,18 +1081,18 @@
       <div class="rates-header reveal">
         <span class="eyebrow" data-i18n="rates_eyebrow">Pricing</span>
         <h2 class="h2" data-i18n-html="rates_h2">Simple, <em>transparent</em></h2>
-        <p class="rates-sub" data-i18n="rates_sub">Captain included. No hidden fees. Up to 13 guests.</p>
+        <p class="rates-sub" data-i18n-html="rates_sub">Captain included. No hidden fees. Up to 13 guests.</p>
       </div>
       <div class="rates-grid rates-grid-2col">
         <div class="rate-card reveal d1">
           <div class="rate-tag" data-i18n="rate_tag">Charter</div>
-          <div class="rate-name" data-i18n="rate_4hr_name">4 Hours</div>
-          <div class="rate-price">$800</div>
+          <div class="rate-name" data-i18n-html="rate_4hr_name">4 Hours</div>
+          <div class="rate-price"><span class="numeric-font">$800</span></div>
           <div class="rate-unit" data-i18n="rate_unit">total</div>
-          <div class="rate-deposit">Reserve online with $300 deposit</div>
+          <div class="rate-deposit">Reserve online with <span class="numeric-font">$300</span> deposit</div>
           <div class="rate-balance">Remaining balance due on day of charter</div>
           <ul class="rate-list">
-            <li data-i18n="rate_li_guests">Up to 13 guests</li>
+            <li data-i18n-html="rate_li_guests">Up to 13 guests</li>
             <li data-i18n="rate_li_captain">Captain included</li>
             <li data-i18n="rate_li_ice">Ice &amp; coolers</li>
             <li data-i18n="rate_li_sound">Sound system</li>
@@ -1095,13 +1104,13 @@
         <div class="rate-card featured reveal d2">
           <div class="rate-popular-badge">Most Popular</div>
           <div class="rate-tag" data-i18n="rate_tag">Charter</div>
-          <div class="rate-name" data-i18n="rate_6hr_name">6 Hours</div>
-          <div class="rate-price">$1,200</div>
+          <div class="rate-name" data-i18n-html="rate_6hr_name">6 Hours</div>
+          <div class="rate-price"><span class="numeric-font">$1,200</span></div>
           <div class="rate-unit" data-i18n="rate_unit">total</div>
-          <div class="rate-deposit">Reserve online with $300 deposit</div>
+          <div class="rate-deposit">Reserve online with <span class="numeric-font">$300</span> deposit</div>
           <div class="rate-balance">Remaining balance due on day of charter</div>
           <ul class="rate-list">
-            <li data-i18n="rate_li_guests">Up to 13 guests</li>
+            <li data-i18n-html="rate_li_guests">Up to 13 guests</li>
             <li data-i18n="rate_li_captain">Captain included</li>
             <li data-i18n="rate_li_ice">Ice &amp; coolers</li>
             <li data-i18n="rate_li_sound">Sound system</li>
@@ -1135,11 +1144,11 @@
         <span class="eyebrow" data-i18n="booking_eyebrow">Reserve</span>
         <h2 class="h2" data-i18n-html="booking_h2">Plan your<br><em>escape</em></h2>
         <div class="gold-line"></div>
-        <p class="body-text" data-i18n="booking_p">Send your details and we confirm your charter within 24 hours. For immediate availability, reach us directly below.</p>
+        <p class="body-text" data-i18n-html="booking_p">Send your details and we confirm your charter within 24 hours. For immediate availability, reach us directly below.</p>
         <div class="contact-items">
           <a href="tel:+15624756245" class="c-row" data-contact="phone">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.82 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
-            <span data-contact-text="phone">+1 (562) 475-6245</span>
+            <span data-contact-text="phone" class="numeric-font">+1 (562) 475-6245</span>
           </a>
           <a href="mailto:info@pienezzayacht.com" class="c-row" data-contact="email">
             <div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
@@ -1180,7 +1189,7 @@
             <div class="fg full"><label data-i18n="form_message_lbl">Message</label><textarea name="message" placeholder="Tell us about your ideal experience..." data-i18n-placeholder="form_ph_message"></textarea></div>
             <button type="submit" class="form-submit" data-i18n="form_submit">Send Inquiry</button>
           </form>
-          <p class="form-note" data-i18n="form_note">We respond within 24 hours · No commitment required</p>
+          <p class="form-note" data-i18n-html="form_note">We respond within 24 hours · No commitment required</p>
         </div>
       </div>
     </div>
@@ -1226,7 +1235,7 @@
       <div class="f-col">
         <h4 data-i18n="footer_contact_title">Contact</h4>
         <ul>
-          <li><a href="tel:+15624756245" data-contact="phone"><span data-contact-text="phone">+1 (562) 475-6245</span></a></li>
+          <li><a href="tel:+15624756245" data-contact="phone"><span data-contact-text="phone" class="numeric-font">+1 (562) 475-6245</span></a></li>
           <li><a href="mailto:info@pienezzayacht.com" data-contact="email">info@pienezzayacht.com</a></li>
           <li><a href="#" data-i18n="footer_location">Brickell, Miami FL</a></li>
         </ul>
@@ -1345,20 +1354,20 @@
 
       <span class="reserve-modal-eyebrow" data-i18n="modal_eyebrow">Reserve Your Charter</span>
       <h2 class="reserve-modal-title" data-i18n-html="modal_title">Secure Your Charter</h2>
-      <p class="reserve-modal-sub" data-i18n="modal_sub">$300 deposit to reserve your date</p>
+      <p class="reserve-modal-sub" data-i18n-html="modal_sub">$300 deposit to reserve your date</p>
 
       <div class="reserve-pkgs">
         <div class="reserve-pkg" id="modalPkg4hr" onclick="selectPkg('4hr')">
-          <div class="reserve-pkg-label" data-i18n="modal_4hr_label">4 Hours</div>
-          <div class="reserve-pkg-price">$800</div>
+          <div class="reserve-pkg-label" data-i18n-html="modal_4hr_label">4 Hours</div>
+          <div class="reserve-pkg-price"><span class="numeric-font">$800</span></div>
           <div class="reserve-pkg-unit" data-i18n="modal_unit">total</div>
-          <div class="reserve-pkg-detail">$300 deposit now + $500 on day of charter</div>
+          <div class="reserve-pkg-detail"><span class="numeric-font">$300</span> deposit now + <span class="numeric-font">$500</span> on day of charter</div>
         </div>
         <div class="reserve-pkg selected" id="modalPkg6hr" onclick="selectPkg('6hr')">
-          <div class="reserve-pkg-label" data-i18n="modal_6hr_label">6 Hours</div>
-          <div class="reserve-pkg-price">$1,200</div>
+          <div class="reserve-pkg-label" data-i18n-html="modal_6hr_label">6 Hours</div>
+          <div class="reserve-pkg-price"><span class="numeric-font">$1,200</span></div>
           <div class="reserve-pkg-unit" data-i18n="modal_unit">total</div>
-          <div class="reserve-pkg-detail">$300 deposit now + $900 on day of charter</div>
+          <div class="reserve-pkg-detail"><span class="numeric-font">$300</span> deposit now + <span class="numeric-font">$900</span> on day of charter</div>
         </div>
       </div>
 
@@ -1381,7 +1390,7 @@
         </a>
       </div>
 
-      <p class="reserve-footnote" data-i18n="modal_footnote">We confirm within 24 hours · No commitment required</p>
+      <p class="reserve-footnote" data-i18n-html="modal_footnote">We confirm within 24 hours · No commitment required</p>
     </div>
   </div>
 
