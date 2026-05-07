@@ -19,7 +19,7 @@ var PIENEZZA_TRANSLATIONS = {
     hero_scroll:        'Scroll',
 
     stat_guests:        'Guests Max',
-    stat_hours:         'Hours Available',
+    stat_hours:         'Hours Charter',
     stat_private:       'Private',
     stat_location:      'South Florida',
 
@@ -149,7 +149,7 @@ var PIENEZZA_TRANSLATIONS = {
     hero_scroll:        'Scroll',
 
     stat_guests:        'M\u00e1x. Invitados',
-    stat_hours:         'Horas Disponibles',
+    stat_hours:         'Horas Charter',
     stat_private:       'Privado',
     stat_location:      'Sur de Florida',
 
