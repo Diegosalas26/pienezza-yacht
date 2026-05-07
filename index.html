@@ -1425,9 +1425,11 @@
       document.getElementById('modalBtnWhatsApp').href = url;
     }
 
-    // Redirige al link de depósito de Stripe
     function reservarOnline() {
-      window.location.href = PIENEZZA_CONFIG.stripeDepositUrl;
+      var url = modalSelectedPkg === '4hr'
+        ? PIENEZZA_CONFIG.calendlyUrl4hr
+        : PIENEZZA_CONFIG.calendlyUrl6hr;
+      window.open(url, '_blank');
     }
 
     // Tecla Escape cierra el modal

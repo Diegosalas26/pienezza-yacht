@@ -12,13 +12,8 @@ const PIENEZZA_CONFIG = {
   whatsappMessage: "Hi! I'd like to book a charter on Pienezza Yacht",
 
   // ============ CALENDLY ============
-  // Crea 2 Event Types en calendly.com y pega las URLs aquí
-  // Ej: https://calendly.com/pienezza-yacht/charter-4-horas
-  calendlyUrl4hr: "REPLACE_WITH_CALENDLY_4HR_URL",
-  calendlyUrl6hr: "REPLACE_WITH_CALENDLY_6HR_URL",
-
-  // ============ STRIPE DEPOSIT ============
-  stripeDepositUrl: "https://buy.stripe.com/7sY28q89O7HI38m9htejK00",
+  calendlyUrl4hr: "https://calendly.com/pienezzayacht/pienezza-yacht",
+  calendlyUrl6hr: "https://calendly.com/pienezzayacht/charter-6hr",
 
   // ============ EMAIL & TELÉFONO ============
   contactEmail: "info@pienezzayacht.com",
