@@ -862,6 +862,22 @@
       transition: color 250ms var(--ease), background 250ms var(--ease);
     }
     .fleet-gallery-btn:hover { color: var(--gold); background: rgba(184,146,42,0.04); }
+    .fleet-card-premium {
+      border: 1px solid rgba(184,146,42,0.4);
+      border-top: 3px solid var(--gold);
+      box-shadow: 0 4px 28px rgba(184,146,42,0.12);
+    }
+    .fleet-card-premium .fleet-card-body { background: var(--cream3); }
+    .fleet-flagship-badge {
+      position: absolute; top: 16px; left: 16px; z-index: 2;
+      background: var(--gold); color: var(--dark);
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.38em;
+      text-transform: uppercase; padding: 5px 14px;
+    }
+    .fleet-deposit-premium {
+      font-size: 11px; font-weight: 600; color: var(--gold);
+      text-align: center; margin-bottom: 20px; letter-spacing: 0.02em;
+    }
     @media (max-width: 900px) {
       .fleet { padding: 64px 24px; }
       .fleet-card { max-width: 100%; }
@@ -1229,6 +1245,51 @@
           </div>
         </div>
 
+        <!-- Pershing 64 — Flagship -->
+        <div class="fleet-card fleet-card-premium reveal d2">
+          <div class="fleet-img-wrap">
+            <div class="fleet-img-placeholder">
+              <span>Pershing 64</span>
+            </div>
+            <img src="images/pershing/pershing-brickell-cruising.jpeg" class="fleet-img" alt="Pershing 64"
+                 onclick="openPershingLightbox(0)"
+                 onload="this.previousElementSibling.style.display='none'">
+            <div class="fleet-flagship-badge">Flagship</div>
+          </div>
+          <div class="fleet-mini-gallery">
+            <img src="images/pershing/pershing-brickell-moving.jpeg" alt="Pershing 64 underway" onclick="openPershingLightbox(1)">
+            <img src="images/pershing/pershing-bow.jpeg" alt="Pershing 64 bow" onclick="openPershingLightbox(2)">
+          </div>
+          <button class="fleet-gallery-btn" onclick="openPershingLightbox(0)">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="4.5" height="4.5"/><rect x="7.5" y="1" width="4.5" height="4.5"/><rect x="1" y="7.5" width="4.5" height="4.5"/><rect x="7.5" y="7.5" width="4.5" height="4.5"/></svg>
+            Gallery
+          </button>
+          <div class="fleet-card-body">
+            <div class="fleet-boat-size">64 ft · Up to 13 guests</div>
+            <div class="fleet-boat-name">Pershing 64</div>
+            <ul class="fleet-amenities">
+              <li>Captain included</li>
+              <li>Water</li>
+              <li>Ice &amp; coolers</li>
+              <li>Sodas</li>
+              <li>Towels</li>
+              <li>Floating mat</li>
+            </ul>
+            <div class="fleet-pricing">
+              <div class="fleet-price-box">
+                <div class="fleet-price-duration">4 Hours</div>
+                <div class="fleet-price-amount">$2,800</div>
+              </div>
+              <div class="fleet-price-box">
+                <div class="fleet-price-duration">6 Hours</div>
+                <div class="fleet-price-amount">$3,400</div>
+              </div>
+            </div>
+            <p class="fleet-deposit-premium">$1,000 deposit to reserve online</p>
+            <a href="#" class="btn-gold" style="display:block;text-align:center;padding:15px;font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;" onclick="event.preventDefault(); openPershingModal(null)">Reserve Now</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1447,6 +1508,154 @@
       if (e.key === 'ArrowLeft') moveLightbox(-1);
       if (e.key === 'ArrowRight') moveLightbox(1);
     });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- PERSHING LIGHTBOX                                           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="lightbox" id="pershingLightbox" onclick="closePershingLightbox()">
+    <button class="lb-close" onclick="closePershingLightbox()">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="3" x2="17" y2="17"/><line x1="17" y1="3" x2="3" y2="17"/></svg>
+    </button>
+    <button class="lb-prev" onclick="event.stopPropagation(); movePershingLightbox(-1)">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="13,4 7,10 13,16"/></svg>
+    </button>
+    <img class="lb-img" id="pershingLbImg" src="" alt="">
+    <div class="lb-caption" id="pershingLbCaption"></div>
+    <button class="lb-next" onclick="event.stopPropagation(); movePershingLightbox(1)">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,4 13,10 7,16"/></svg>
+    </button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- PERSHING MODAL                                              -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="reserve-modal" id="pershingModal">
+    <div class="reserve-modal-overlay" onclick="closePershingModal()"></div>
+    <div class="reserve-modal-box">
+      <button class="reserve-modal-close" onclick="closePershingModal()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0E1C36" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="2" x2="14" y2="14"/><line x1="14" y1="2" x2="2" y2="14"/>
+        </svg>
+      </button>
+      <span class="reserve-modal-eyebrow">Reserve Your Charter</span>
+      <h2 class="reserve-modal-title">Pershing <em>64</em></h2>
+      <p class="reserve-modal-sub">$1,000 deposit to reserve your date</p>
+      <div class="reserve-pkgs">
+        <div class="reserve-pkg" id="pershingPkg4hr" onclick="selectPershingPkg('4hr')">
+          <div class="reserve-pkg-label">4 Hours</div>
+          <div class="reserve-pkg-price">$2,800</div>
+          <div class="reserve-pkg-unit">total</div>
+          <div class="reserve-pkg-detail">$1,000 deposit now + $1,800 on day of charter</div>
+        </div>
+        <div class="reserve-pkg selected" id="pershingPkg6hr" onclick="selectPershingPkg('6hr')">
+          <div class="reserve-pkg-label">6 Hours</div>
+          <div class="reserve-pkg-price">$3,400</div>
+          <div class="reserve-pkg-unit">total</div>
+          <div class="reserve-pkg-detail">$1,000 deposit now + $2,400 on day of charter</div>
+        </div>
+      </div>
+      <div class="reserve-or"><span>How would you like to reserve?</span></div>
+      <div class="reserve-ctas">
+        <button class="btn-reserve-online" onclick="reservarPershingOnline()">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="2" width="13" height="12" rx="1.5"/>
+            <path d="M1 6h13"/><path d="M5 1v3M10 1v3"/>
+          </svg>
+          <span>Reserve &amp; Pay Online</span>
+        </button>
+        <a class="btn-reserve-whatsapp" id="pershingBtnWhatsApp" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="#25D366">
+            <path d="M8.5 0C3.81 0 0 3.81 0 8.5c0 1.5.39 2.91 1.08 4.14L0 17l4.49-1.17A8.47 8.47 0 008.5 17C13.19 17 17 13.19 17 8.5S13.19 0 8.5 0zm4.38 11.67c-.18.51-1.07.99-1.46 1.05-.36.05-.81.07-1.3-.08-.3-.1-.68-.22-1.17-.43-2.06-.89-3.4-2.96-3.51-3.09-.1-.13-.85-1.13-.85-2.17 0-1.03.54-1.53.73-1.74.19-.21.41-.26.55-.26h.4c.13 0 .3-.05.47.36.18.42.61 1.49.66 1.59.06.1.1.24.02.37-.08.14-.11.22-.22.34l-.32.38c-.1.1-.21.22-.1.43.12.21.53.88 1.14 1.43.77.7 1.43.92 1.64 1.01.21.1.33.08.45-.05l.65-.76c.12-.13.25-.1.42-.06.17.05 1.07.5 1.25.6.18.09.3.13.35.21.05.07.05.45-.13.97z"/>
+          </svg>
+          <span>Reserve via WhatsApp</span>
+        </a>
+      </div>
+      <p class="reserve-footnote">We confirm within 24 hours · No commitment required</p>
+    </div>
+  </div>
+
+  <script>
+    var pershingLbPhotos = [
+      { src: 'images/pershing/pershing-brickell-cruising.jpeg', caption: 'Pershing 64 · Brickell Miami' },
+      { src: 'images/pershing/pershing-brickell-moving.jpeg',   caption: 'Pershing 64 · Underway Miami' },
+      { src: 'images/pershing/pershing-bow.jpeg',               caption: 'Pershing 64 · Bow' },
+    ];
+    var pershingLbIndex = 0;
+    var pershingLb = document.getElementById('pershingLightbox');
+    var pershingLbImg = document.getElementById('pershingLbImg');
+    var pershingLbCap = document.getElementById('pershingLbCaption');
+
+    function openPershingLightbox(i) {
+      pershingLbIndex = i;
+      pershingLbImg.src = pershingLbPhotos[i].src;
+      pershingLbCap.textContent = pershingLbPhotos[i].caption;
+      pershingLb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePershingLightbox() {
+      pershingLb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function movePershingLightbox(dir) {
+      pershingLbIndex = (pershingLbIndex + dir + pershingLbPhotos.length) % pershingLbPhotos.length;
+      pershingLbImg.style.opacity = 0;
+      setTimeout(function() {
+        pershingLbImg.src = pershingLbPhotos[pershingLbIndex].src;
+        pershingLbCap.textContent = pershingLbPhotos[pershingLbIndex].caption;
+        pershingLbImg.style.opacity = 1;
+      }, 180);
+    }
+    pershingLbImg.style.transition = 'opacity 180ms';
+
+    var pershingSelectedPkg = '6hr';
+
+    function openPershingModal(pkg) {
+      pershingSelectedPkg = pkg || '6hr';
+      actualizarSeleccionPershing(pershingSelectedPkg);
+      actualizarPershingWhatsApp();
+      document.getElementById('pershingModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePershingModal() {
+      document.getElementById('pershingModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function selectPershingPkg(pkg) {
+      pershingSelectedPkg = pkg;
+      actualizarSeleccionPershing(pkg);
+      actualizarPershingWhatsApp();
+    }
+    function actualizarSeleccionPershing(pkg) {
+      document.getElementById('pershingPkg4hr').classList.toggle('selected', pkg === '4hr');
+      document.getElementById('pershingPkg6hr').classList.toggle('selected', pkg === '6hr');
+    }
+    function actualizarPershingWhatsApp() {
+      var cfg = PIENEZZA_CONFIG;
+      var precio = pershingSelectedPkg === '4hr' ? 2800 : 3400;
+      var nombre = pershingSelectedPkg === '4hr' ? 'Charter 4 Hours' : 'Charter 6 Hours';
+      var mensaje = 'Hi! I\'d like to book a charter on Pershing 64 — ' + nombre + ' ($' + precio + ')';
+      var url = 'https://wa.me/' + cfg.whatsappNumber + '?text=' + encodeURIComponent(mensaje);
+      document.getElementById('pershingBtnWhatsApp').href = url;
+    }
+    function reservarPershingOnline() {
+      var url = pershingSelectedPkg === '4hr'
+        ? PIENEZZA_CONFIG.pershingCalendly4hr
+        : PIENEZZA_CONFIG.pershingCalendly6hr;
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+    document.addEventListener('keydown', function(e) {
+      if (pershingLb.classList.contains('open')) {
+        if (e.key === 'Escape') closePershingLightbox();
+        if (e.key === 'ArrowLeft') movePershingLightbox(-1);
+        if (e.key === 'ArrowRight') movePershingLightbox(1);
+        return;
+      }
+      if (e.key === 'Escape') closePershingModal();
+    });
+    actualizarPershingWhatsApp();
   </script>
 
   <!-- ═══════════════════════════════════════════════════════════ -->

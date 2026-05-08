@@ -24,6 +24,11 @@ const PIENEZZA_CONFIG = {
   amberjackCalendly4hr: "REPLACE_WITH_AMBERJACK_CALENDLY_4HR",
   amberjackCalendly6hr: "REPLACE_WITH_AMBERJACK_CALENDLY_6HR",
 
+  // ============ PERSHING 64 CALENDLY ============
+  pershingCalendly4hr: "REPLACE_WITH_PERSHING_CALENDLY_4HR",
+  pershingCalendly6hr: "REPLACE_WITH_PERSHING_CALENDLY_6HR",
+  pershingDeposit: 1000,
+
   // ============ PAQUETES ============
   packages: {
     fourHour: {
