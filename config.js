@@ -20,6 +20,10 @@ const PIENEZZA_CONFIG = {
   contactPhone: "+16452073161",
   contactPhoneDisplay: "+1 (645) 207-3161",
 
+  // ============ AMBERJACK CALENDLY ============
+  amberjackCalendly4hr: "REPLACE_WITH_AMBERJACK_CALENDLY_4HR",
+  amberjackCalendly6hr: "REPLACE_WITH_AMBERJACK_CALENDLY_6HR",
+
   // ============ PAQUETES ============
   packages: {
     fourHour: {

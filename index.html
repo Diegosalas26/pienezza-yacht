@@ -176,6 +176,7 @@
     .mobile-menu.open a:nth-child(3) { transition-delay: 160ms; }
     .mobile-menu.open a:nth-child(4) { transition-delay: 210ms; }
     .mobile-menu.open a:nth-child(5) { transition-delay: 260ms; }
+    .mobile-menu.open a:nth-child(7) { transition-delay: 310ms; }
     .mobile-menu a:hover { color: var(--gold); }
     .mobile-menu-line { width: 1px; height: 32px; background: var(--cream3); }
 
@@ -813,6 +814,40 @@
       text-align: center; margin-top: 18px; letter-spacing: 0.04em;
     }
 
+    /* ─── FLEET ─── */
+    .fleet { background: var(--cream); padding: 100px 56px; border-top: 1px solid rgba(14,28,54,0.06); }
+    .fleet-inner { max-width: 900px; margin: 0 auto; }
+    .fleet-header { text-align: center; margin-bottom: 64px; }
+    .fleet-grid { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .fleet-card { background: var(--cream2); border: 1px solid rgba(14,28,54,0.08); width: 100%; max-width: 420px; overflow: hidden; }
+    .fleet-img-wrap { position: relative; height: 280px; overflow: hidden; }
+    .fleet-img-placeholder {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #0E1C36 0%, #1A2D50 100%);
+    }
+    .fleet-img-placeholder span {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300;
+      color: rgba(245,240,232,0.45); letter-spacing: 0.08em; text-align: center;
+    }
+    .fleet-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .fleet-card-body { padding: 36px 32px 32px; }
+    .fleet-boat-size { font-size: 9.5px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .fleet-boat-name { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 400; color: var(--navy); margin-bottom: 24px; }
+    .fleet-amenities { list-style: none; margin-bottom: 28px; }
+    .fleet-amenities li { font-size: 13px; font-weight: 300; color: rgba(14,28,54,0.6); padding: 9px 0; border-bottom: 1px solid rgba(14,28,54,0.06); display: flex; align-items: center; gap: 10px; }
+    .fleet-amenities li:first-child { border-top: 1px solid rgba(14,28,54,0.06); }
+    .fleet-amenities li::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+    .fleet-pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .fleet-price-box { padding: 16px; text-align: center; background: var(--cream3); }
+    .fleet-price-duration { font-size: 8.5px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .fleet-price-amount { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--navy); line-height: 1; }
+    .fleet-deposit-note { font-size: 10.5px; font-weight: 300; color: rgba(14,28,54,0.4); text-align: center; margin-bottom: 20px; }
+    @media (max-width: 900px) {
+      .fleet { padding: 64px 24px; }
+      .fleet-card { max-width: 100%; }
+    }
+
     /* Mobile — bottom sheet */
     @media (max-width: 600px) {
       .reserve-modal { padding: 0; align-items: flex-end; }
@@ -862,6 +897,7 @@
       <li><a href="#vessel" data-i18n="nav_vessel">The Yacht</a></li>
       <li><a href="#experiences" data-i18n="nav_experiences">Experiences</a></li>
       <li><a href="#rates" data-i18n="nav_rates">Rates</a></li>
+      <li><a href="#fleet">Our Fleet</a></li>
       <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -881,6 +917,8 @@
     <a href="#experiences" onclick="closeMenu()" data-i18n="nav_experiences">Experiences</a>
     <div class="mobile-menu-line"></div>
     <a href="#rates" onclick="closeMenu()" data-i18n="nav_rates">Rates</a>
+    <div class="mobile-menu-line"></div>
+    <a href="#fleet" onclick="closeMenu()">Our Fleet</a>
     <div class="mobile-menu-line"></div>
     <a href="#contact" onclick="closeMenu()" data-i18n="nav_contact">Contact</a>
     <div class="mobile-menu-line"></div>
@@ -1114,6 +1152,56 @@
     </div>
   </section>
 
+  <!-- FLEET -->
+  <section class="fleet" id="fleet">
+    <div class="fleet-inner">
+      <div class="fleet-header reveal">
+        <span class="eyebrow">Our Fleet</span>
+        <h2 class="h2">Choose your <em>vessel</em></h2>
+        <div class="gold-line" style="margin:24px auto;"></div>
+        <p class="rates-sub" style="color:rgba(14,28,54,0.5);">Each vessel captained, equipped, and ready for your perfect day on the water.</p>
+      </div>
+      <div class="fleet-grid">
+
+        <!-- Searay Amberjack -->
+        <div class="fleet-card reveal d1">
+          <div class="fleet-img-wrap">
+            <div class="fleet-img-placeholder">
+              <span>Searay Amberjack</span>
+            </div>
+            <img src="images/amberjack/main.jpg" class="fleet-img" alt="Searay Amberjack"
+                 onerror="this.style.display='none'"
+                 onload="this.previousElementSibling.style.display='none'">
+          </div>
+          <div class="fleet-card-body">
+            <div class="fleet-boat-size">32 ft · Up to 10 guests</div>
+            <div class="fleet-boat-name">Searay Amberjack</div>
+            <ul class="fleet-amenities">
+              <li>Captain included</li>
+              <li>Water</li>
+              <li>Ice &amp; coolers</li>
+              <li>Sodas</li>
+              <li>Floating mat</li>
+            </ul>
+            <div class="fleet-pricing">
+              <div class="fleet-price-box">
+                <div class="fleet-price-duration">4 Hours</div>
+                <div class="fleet-price-amount">$700</div>
+              </div>
+              <div class="fleet-price-box">
+                <div class="fleet-price-duration">6 Hours</div>
+                <div class="fleet-price-amount">$900</div>
+              </div>
+            </div>
+            <p class="fleet-deposit-note">$300 deposit to reserve online</p>
+            <a href="#" class="btn-rate-reserve" onclick="event.preventDefault(); openAmberjackModal(null)">Reserve Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- TESTIMONIALS -->
   <section class="testimonial">
     <span class="eyebrow reveal" style="justify-content:center;" data-i18n="testimonials_eyebrow">Guest Reviews</span>
@@ -1328,6 +1416,117 @@
       if (e.key === 'ArrowLeft') moveLightbox(-1);
       if (e.key === 'ArrowRight') moveLightbox(1);
     });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- AMBERJACK MODAL                                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="reserve-modal" id="amberjackModal">
+    <div class="reserve-modal-overlay" onclick="closeAmberjackModal()"></div>
+    <div class="reserve-modal-box">
+
+      <button class="reserve-modal-close" onclick="closeAmberjackModal()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0E1C36" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="2" x2="14" y2="14"/><line x1="14" y1="2" x2="2" y2="14"/>
+        </svg>
+      </button>
+
+      <span class="reserve-modal-eyebrow">Reserve Your Charter</span>
+      <h2 class="reserve-modal-title">Searay <em>Amberjack</em></h2>
+      <p class="reserve-modal-sub">$300 deposit to reserve your date</p>
+
+      <div class="reserve-pkgs">
+        <div class="reserve-pkg" id="abPkg4hr" onclick="selectAbPkg('4hr')">
+          <div class="reserve-pkg-label">4 Hours</div>
+          <div class="reserve-pkg-price">$700</div>
+          <div class="reserve-pkg-unit">total</div>
+          <div class="reserve-pkg-detail">$300 deposit now + $400 on day of charter</div>
+        </div>
+        <div class="reserve-pkg selected" id="abPkg6hr" onclick="selectAbPkg('6hr')">
+          <div class="reserve-pkg-label">6 Hours</div>
+          <div class="reserve-pkg-price">$900</div>
+          <div class="reserve-pkg-unit">total</div>
+          <div class="reserve-pkg-detail">$300 deposit now + $600 on day of charter</div>
+        </div>
+      </div>
+
+      <div class="reserve-or"><span>How would you like to reserve?</span></div>
+
+      <div class="reserve-ctas">
+        <button class="btn-reserve-online" onclick="reservarAmberjackOnline()">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="2" width="13" height="12" rx="1.5"/>
+            <path d="M1 6h13"/><path d="M5 1v3M10 1v3"/>
+          </svg>
+          <span>Reserve &amp; Pay Online</span>
+        </button>
+
+        <a class="btn-reserve-whatsapp" id="abBtnWhatsApp" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="#25D366">
+            <path d="M8.5 0C3.81 0 0 3.81 0 8.5c0 1.5.39 2.91 1.08 4.14L0 17l4.49-1.17A8.47 8.47 0 008.5 17C13.19 17 17 13.19 17 8.5S13.19 0 8.5 0zm4.38 11.67c-.18.51-1.07.99-1.46 1.05-.36.05-.81.07-1.3-.08-.3-.1-.68-.22-1.17-.43-2.06-.89-3.4-2.96-3.51-3.09-.1-.13-.85-1.13-.85-2.17 0-1.03.54-1.53.73-1.74.19-.21.41-.26.55-.26h.4c.13 0 .3-.05.47.36.18.42.61 1.49.66 1.59.06.1.1.24.02.37-.08.14-.11.22-.22.34l-.32.38c-.1.1-.21.22-.1.43.12.21.53.88 1.14 1.43.77.7 1.43.92 1.64 1.01.21.1.33.08.45-.05l.65-.76c.12-.13.25-.1.42-.06.17.05 1.07.5 1.25.6.18.09.3.13.35.21.05.07.05.45-.13.97z"/>
+          </svg>
+          <span>Reserve via WhatsApp</span>
+        </a>
+      </div>
+
+      <p class="reserve-footnote">We confirm within 24 hours · No commitment required</p>
+    </div>
+  </div>
+
+  <script>
+    var abSelectedPkg = '6hr';
+
+    function openAmberjackModal(pkg) {
+      abSelectedPkg = pkg || '6hr';
+      actualizarSeleccionAb(abSelectedPkg);
+      actualizarAbWhatsApp();
+      document.getElementById('amberjackModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAmberjackModal() {
+      document.getElementById('amberjackModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function selectAbPkg(pkg) {
+      abSelectedPkg = pkg;
+      actualizarSeleccionAb(pkg);
+      actualizarAbWhatsApp();
+    }
+
+    function actualizarSeleccionAb(pkg) {
+      document.getElementById('abPkg4hr').classList.toggle('selected', pkg === '4hr');
+      document.getElementById('abPkg6hr').classList.toggle('selected', pkg === '6hr');
+    }
+
+    function actualizarAbWhatsApp() {
+      var cfg = PIENEZZA_CONFIG;
+      var precio = abSelectedPkg === '4hr' ? 700 : 900;
+      var nombre = abSelectedPkg === '4hr' ? 'Charter 4 Hours' : 'Charter 6 Hours';
+      var mensaje = 'Hi! I\'d like to book a charter on Searay Amberjack — ' + nombre + ' ($' + precio + ')';
+      var url = 'https://wa.me/' + cfg.whatsappNumber + '?text=' + encodeURIComponent(mensaje);
+      document.getElementById('abBtnWhatsApp').href = url;
+    }
+
+    function reservarAmberjackOnline() {
+      var url = abSelectedPkg === '4hr'
+        ? PIENEZZA_CONFIG.amberjackCalendly4hr
+        : PIENEZZA_CONFIG.amberjackCalendly6hr;
+      var a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeAmberjackModal();
+    });
+
+    actualizarAbWhatsApp();
   </script>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
