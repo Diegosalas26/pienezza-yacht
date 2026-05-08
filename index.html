@@ -843,9 +843,14 @@
     .fleet-price-duration { font-size: 8.5px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
     .fleet-price-amount { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--navy); line-height: 1; }
     .fleet-deposit-note { font-size: 10.5px; font-weight: 300; color: rgba(14,28,54,0.4); text-align: center; margin-bottom: 20px; }
-    .fleet-mini-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; }
-    .fleet-mini-gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; filter: brightness(0.9); transition: filter 300ms var(--ease); }
+    .fleet-mini-gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; }
+    .fleet-mini-gallery img { width: 100%; object-fit: cover; display: block; filter: brightness(0.9); transition: filter 300ms var(--ease); }
     .fleet-mini-gallery img:hover { filter: brightness(1.05); }
+    .fleet-mini-gallery img:nth-child(1),
+    .fleet-mini-gallery img:nth-child(2) { grid-column: span 3; aspect-ratio: 16/9; }
+    .fleet-mini-gallery img:nth-child(3),
+    .fleet-mini-gallery img:nth-child(4),
+    .fleet-mini-gallery img:nth-child(5) { grid-column: span 2; aspect-ratio: 1; }
     @media (max-width: 900px) {
       .fleet { padding: 64px 24px; }
       .fleet-card { max-width: 100%; }
@@ -1178,6 +1183,7 @@
           </div>
           <div class="fleet-mini-gallery">
             <img src="images/amberjack/night-miami.jpg" alt="Miami skyline at night">
+            <img src="images/amberjack/golden-miami.jpg" alt="Underway Miami skyline">
             <img src="images/amberjack/deck.jpg" alt="Deck view">
             <img src="images/amberjack/cabin.jpg" alt="Cabin">
             <img src="images/amberjack/stateroom.jpg" alt="Stateroom">
