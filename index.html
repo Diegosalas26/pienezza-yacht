@@ -851,6 +851,17 @@
     .fleet-mini-gallery img:nth-child(3),
     .fleet-mini-gallery img:nth-child(4),
     .fleet-mini-gallery img:nth-child(5) { grid-column: span 2; aspect-ratio: 1; }
+    .fleet-mini-gallery img { cursor: pointer; }
+    .fleet-img { cursor: pointer; }
+    .fleet-gallery-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 14px; background: none; border: none;
+      border-top: 1px solid rgba(14,28,54,0.08); cursor: pointer;
+      font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase; color: rgba(14,28,54,0.4);
+      transition: color 250ms var(--ease), background 250ms var(--ease);
+    }
+    .fleet-gallery-btn:hover { color: var(--gold); background: rgba(184,146,42,0.04); }
     @media (max-width: 900px) {
       .fleet { padding: 64px 24px; }
       .fleet-card { max-width: 100%; }
@@ -1178,16 +1189,21 @@
               <span>Searay Amberjack</span>
             </div>
             <img src="images/amberjack/main.jpg" class="fleet-img" alt="Searay Amberjack"
+                 onclick="openAbLightbox(0)"
                  onerror="this.style.display='none'"
                  onload="this.previousElementSibling.style.display='none'">
           </div>
           <div class="fleet-mini-gallery">
-            <img src="images/amberjack/night-miami.jpg" alt="Miami skyline at night">
-            <img src="images/amberjack/golden-miami.jpg" alt="Underway Miami skyline">
-            <img src="images/amberjack/deck.jpg" alt="Deck view">
-            <img src="images/amberjack/cabin.jpg" alt="Cabin">
-            <img src="images/amberjack/stateroom.jpg" alt="Stateroom">
+            <img src="images/amberjack/night-miami.jpg" alt="Miami skyline at night" onclick="openAbLightbox(1)">
+            <img src="images/amberjack/golden-miami.jpg" alt="Underway Miami skyline" onclick="openAbLightbox(2)">
+            <img src="images/amberjack/deck.jpg" alt="Deck view" onclick="openAbLightbox(3)">
+            <img src="images/amberjack/cabin.jpg" alt="Cabin" onclick="openAbLightbox(4)">
+            <img src="images/amberjack/stateroom.jpg" alt="Stateroom" onclick="openAbLightbox(5)">
           </div>
+          <button class="fleet-gallery-btn" onclick="openAbLightbox(0)">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="4.5" height="4.5"/><rect x="7.5" y="1" width="4.5" height="4.5"/><rect x="1" y="7.5" width="4.5" height="4.5"/><rect x="7.5" y="7.5" width="4.5" height="4.5"/></svg>
+            Gallery
+          </button>
           <div class="fleet-card-body">
             <div class="fleet-boat-size">32 ft · Up to 10 guests</div>
             <div class="fleet-boat-name">Searay Amberjack</div>
@@ -1430,6 +1446,66 @@
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') moveLightbox(-1);
       if (e.key === 'ArrowRight') moveLightbox(1);
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- AMBERJACK LIGHTBOX                                          -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="lightbox" id="abLightbox" onclick="closeAbLightbox()">
+    <button class="lb-close" onclick="closeAbLightbox()">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="3" x2="17" y2="17"/><line x1="17" y1="3" x2="3" y2="17"/></svg>
+    </button>
+    <button class="lb-prev" onclick="event.stopPropagation(); moveAbLightbox(-1)">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="13,4 7,10 13,16"/></svg>
+    </button>
+    <img class="lb-img" id="abLbImg" src="" alt="">
+    <div class="lb-caption" id="abLbCaption"></div>
+    <button class="lb-next" onclick="event.stopPropagation(); moveAbLightbox(1)">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,4 13,10 7,16"/></svg>
+    </button>
+  </div>
+
+  <script>
+    var abLbPhotos = [
+      { src: 'images/amberjack/main.jpg',        caption: 'Searay Amberjack · Miami' },
+      { src: 'images/amberjack/night-miami.jpg',  caption: 'Miami Skyline · Night' },
+      { src: 'images/amberjack/golden-miami.jpg', caption: 'Underway · Miami Bay' },
+      { src: 'images/amberjack/deck.jpg',         caption: 'The Deck' },
+      { src: 'images/amberjack/cabin.jpg',        caption: 'The Cabin' },
+      { src: 'images/amberjack/stateroom.jpg',    caption: 'The Stateroom' },
+    ];
+    var abLbIndex = 0;
+    var abLb = document.getElementById('abLightbox');
+    var abLbImg = document.getElementById('abLbImg');
+    var abLbCap = document.getElementById('abLbCaption');
+
+    function openAbLightbox(i) {
+      abLbIndex = i;
+      abLbImg.src = abLbPhotos[i].src;
+      abLbCap.textContent = abLbPhotos[i].caption;
+      abLb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeAbLightbox() {
+      abLb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function moveAbLightbox(dir) {
+      abLbIndex = (abLbIndex + dir + abLbPhotos.length) % abLbPhotos.length;
+      abLbImg.style.opacity = 0;
+      setTimeout(function() {
+        abLbImg.src = abLbPhotos[abLbIndex].src;
+        abLbCap.textContent = abLbPhotos[abLbIndex].caption;
+        abLbImg.style.opacity = 1;
+      }, 180);
+    }
+    abLbImg.style.transition = 'opacity 180ms';
+    document.addEventListener('keydown', function(e) {
+      if (!abLb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeAbLightbox();
+      if (e.key === 'ArrowLeft') moveAbLightbox(-1);
+      if (e.key === 'ArrowRight') moveAbLightbox(1);
     });
   </script>
 
