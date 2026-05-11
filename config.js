@@ -21,12 +21,12 @@ const PIENEZZA_CONFIG = {
   contactPhoneDisplay: "+1 (645) 207-3161",
 
   // ============ AMBERJACK CALENDLY ============
-  amberjackCalendly4hr: "REPLACE_WITH_AMBERJACK_CALENDLY_4HR",
-  amberjackCalendly6hr: "REPLACE_WITH_AMBERJACK_CALENDLY_6HR",
+  amberjackCalendly4hr: "https://calendly.com/pienezzayacht/amberjack-4hr",
+  amberjackCalendly6hr: "https://calendly.com/pienezzayacht/pienezza-yacht-amberjack-6hrs",
 
   // ============ PERSHING 64 CALENDLY ============
-  pershingCalendly4hr: "REPLACE_WITH_PERSHING_CALENDLY_4HR",
-  pershingCalendly6hr: "REPLACE_WITH_PERSHING_CALENDLY_6HR",
+  pershingCalendly4hr: "https://calendly.com/pienezzayacht/pienezza-yacht-pershing-4hrs",
+  pershingCalendly6hr: "https://calendly.com/pienezzayacht/pienezza-yacht-pershing-6hrs",
   pershingDeposit: 1000,
 
   // ============ PAQUETES ============
