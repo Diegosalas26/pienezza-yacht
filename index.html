@@ -1652,14 +1652,6 @@
       var url = 'https://wa.me/' + cfg.whatsappNumber + '?text=' + encodeURIComponent(mensaje);
       document.getElementById('pershingBtnWhatsApp').href = url;
     }
-    function reservarPershingOnline() {
-      var url = pershingSelectedPkg === '4hr'
-        ? PIENEZZA_CONFIG.pershingCalendly4hr
-        : PIENEZZA_CONFIG.pershingCalendly6hr;
-      var a = document.createElement('a');
-      a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-      document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    }
     document.addEventListener('keydown', function(e) {
       if (pershingLb.classList.contains('open')) {
         if (e.key === 'Escape') closePershingLightbox();
@@ -1815,19 +1807,6 @@
       var mensaje = 'Hi! I\'d like to book a charter on Searay Amberjack — ' + nombre + ' ($' + precio + ')';
       var url = 'https://wa.me/' + cfg.whatsappNumber + '?text=' + encodeURIComponent(mensaje);
       document.getElementById('abBtnWhatsApp').href = url;
-    }
-
-    function reservarAmberjackOnline() {
-      var url = abSelectedPkg === '4hr'
-        ? PIENEZZA_CONFIG.amberjackCalendly4hr
-        : PIENEZZA_CONFIG.amberjackCalendly6hr;
-      var a = document.createElement('a');
-      a.href = url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
     }
 
     document.addEventListener('keydown', function(e) {
