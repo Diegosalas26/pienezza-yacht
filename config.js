@@ -30,18 +30,25 @@ const PIENEZZA_CONFIG = {
   pershingDeposit: 1000,
 
   // ============ PAQUETES ============
+  // Bareboat Charter — bareboat rate + hourly captain fee (captain available, not included)
   packages: {
     fourHour: {
       id: "4hr",
-      name: "Charter 4 Hours",
+      name: "Bareboat Charter 4 Hours",
       price: 800,
-      duration: "4 hours"
+      bareboatRate: 600,
+      captainRate: 50,
+      duration: "4 hours",
+      description: "Bareboat rate: $600 + Captain: $50/hr × 4hrs = $200 (Total $800)"
     },
     sixHour: {
       id: "6hr",
-      name: "Charter 6 Hours",
+      name: "Bareboat Charter 6 Hours",
       price: 1200,
-      duration: "6 hours"
+      bareboatRate: 900,
+      captainRate: 50,
+      duration: "6 hours",
+      description: "Bareboat rate: $900 + Captain: $50/hr × 6hrs = $300 (Total $1,200)"
     }
   }
 };

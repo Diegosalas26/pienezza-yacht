@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pienezza Yacht — Private Charter · Miami</title>
-  <meta name="description" content="Private yacht charter in Miami. Up to 13 guests. Biscayne Bay, the Sandbar, and beyond. Est. MMXXIV.">
+  <title>Pienezza Yacht — Bareboat Charter · Miami</title>
+  <meta name="description" content="Bareboat yacht charter in Miami. Captain available. Up to 13 guests. Biscayne Bay, the Sandbar, and beyond. Est. MMXXIV.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -517,6 +517,10 @@
       font-size: 10px; letter-spacing: 0.25em; color: rgba(245,240,232,0.3);
       text-transform: uppercase; margin-bottom: 10px;
     }
+    .rate-breakdown {
+      font-size: 10px; font-weight: 300; color: rgba(245,240,232,0.45);
+      letter-spacing: 0.02em; margin-bottom: 12px; line-height: 1.4;
+    }
     .rate-deposit {
       font-size: 11px; font-weight: 500; color: var(--gold);
       letter-spacing: 0.04em; margin-bottom: 4px;
@@ -777,6 +781,10 @@
       font-size: 9px; font-weight: 400; color: rgba(14,28,54,0.45);
       margin-top: 8px; line-height: 1.4;
     }
+    .reserve-pkg-breakdown {
+      font-size: 9px; font-weight: 500; color: rgba(14,28,54,0.55);
+      margin-top: 6px; line-height: 1.4; letter-spacing: 0.01em;
+    }
 
     .reserve-or {
       display: flex; align-items: center; gap: 14px; margin: 0 0 22px;
@@ -842,6 +850,7 @@
     .fleet-price-box { padding: 8px 8px 4px; text-align: center; background: transparent; }
     .fleet-price-duration { font-size: 8.5px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
     .fleet-price-amount { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--navy); line-height: 1; }
+    .fleet-price-breakdown { font-size: 8.5px; font-weight: 500; color: rgba(14,28,54,0.55); margin-top: 6px; line-height: 1.35; letter-spacing: 0.01em; }
     .fleet-deposit-note { font-size: 10.5px; font-weight: 300; color: rgba(14,28,54,0.4); text-align: center; margin-bottom: 20px; }
     .fleet-mini-gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; }
     .fleet-mini-gallery img { width: 100%; object-fit: cover; display: block; filter: brightness(0.9); transition: filter 300ms var(--ease); }
@@ -966,7 +975,7 @@
     <div class="hero-content">
       <div class="hero-tag reveal">
         <div class="hero-tag-line"></div>
-        <span class="hero-tag-text" data-i18n="hero_tag">Miami River · Private Charter</span>
+        <span class="hero-tag-text" data-i18n="hero_tag">Miami River · Bareboat Charter</span>
       </div>
       <h1 class="hero-h1 reveal d1" data-i18n-html="hero_h1">Private<br><em>Charter</em></h1>
       <p class="hero-h2 reveal d2" data-i18n="hero_h2">dal mare — from the sea</p>
@@ -1144,7 +1153,7 @@
       <div class="rates-header reveal">
         <span class="eyebrow" data-i18n="rates_eyebrow">Pricing</span>
         <h2 class="h2" data-i18n-html="rates_h2">Simple, <em>transparent</em></h2>
-        <p class="rates-sub" data-i18n-html="rates_sub">Captain included. No hidden fees. Up to 13 guests.</p>
+        <p class="rates-sub" data-i18n-html="rates_sub">Captain available. No hidden fees. Up to 13 guests.</p>
       </div>
       <div class="rates-grid rates-grid-2col">
         <div class="rate-card reveal d1">
@@ -1152,11 +1161,12 @@
           <div class="rate-name" data-i18n-html="rate_4hr_name">4 Hours</div>
           <div class="rate-price">$800</div>
           <div class="rate-unit" data-i18n="rate_unit">total</div>
+          <div class="rate-breakdown">Bareboat rate: $600 + Captain: $50/hr</div>
           <div class="rate-deposit">Reserve online with $300 deposit</div>
           <div class="rate-balance">Remaining balance due on day of charter</div>
           <ul class="rate-list">
             <li data-i18n-html="rate_li_guests">Up to 13 guests</li>
-            <li data-i18n="rate_li_captain">Captain included</li>
+            <li data-i18n="rate_li_captain">Captain available</li>
             <li data-i18n="rate_li_ice">Ice &amp; coolers</li>
             <li data-i18n="rate_li_sound">Sound system</li>
             <li>Sodas</li>
@@ -1170,11 +1180,12 @@
           <div class="rate-name" data-i18n-html="rate_6hr_name">6 Hours</div>
           <div class="rate-price">$1,200</div>
           <div class="rate-unit" data-i18n="rate_unit">total</div>
+          <div class="rate-breakdown">Bareboat rate: $900 + Captain: $50/hr</div>
           <div class="rate-deposit">Reserve online with $300 deposit</div>
           <div class="rate-balance">Remaining balance due on day of charter</div>
           <ul class="rate-list">
             <li data-i18n-html="rate_li_guests">Up to 13 guests</li>
-            <li data-i18n="rate_li_captain">Captain included</li>
+            <li data-i18n="rate_li_captain">Captain available</li>
             <li data-i18n="rate_li_ice">Ice &amp; coolers</li>
             <li data-i18n="rate_li_sound">Sound system</li>
             <li>Sodas</li>
@@ -1193,7 +1204,7 @@
         <span class="eyebrow">Our Fleet</span>
         <h2 class="h2">Choose your <em>vessel</em></h2>
         <div class="gold-line" style="margin:24px auto;"></div>
-        <p class="rates-sub" style="color:rgba(14,28,54,0.5);">Each vessel captained, equipped, and ready for your perfect day on the water.</p>
+        <p class="rates-sub" style="color:rgba(14,28,54,0.5);">Each vessel equipped and ready, with captain available, for your perfect day on the water.</p>
       </div>
       <div class="fleet-grid">
 
@@ -1223,7 +1234,7 @@
             <div class="fleet-boat-size">32 ft · Up to 10 guests</div>
             <div class="fleet-boat-name">Searay Amberjack</div>
             <ul class="fleet-amenities">
-              <li>Captain included</li>
+              <li>Captain available</li>
               <li>Water</li>
               <li>Ice &amp; coolers</li>
               <li>Sodas</li>
@@ -1233,10 +1244,12 @@
               <div class="fleet-price-box">
                 <div class="fleet-price-duration">4 Hours</div>
                 <div class="fleet-price-amount">$700</div>
+                <div class="fleet-price-breakdown">Bareboat: $500<br>+ Captain $50/hr</div>
               </div>
               <div class="fleet-price-box">
                 <div class="fleet-price-duration">6 Hours</div>
                 <div class="fleet-price-amount">$900</div>
+                <div class="fleet-price-breakdown">Bareboat: $600<br>+ Captain $50/hr</div>
               </div>
             </div>
             <p class="fleet-deposit-premium">$300 deposit to reserve online</p>
@@ -1269,7 +1282,7 @@
             <div class="fleet-boat-size">64 ft · Up to 13 guests</div>
             <div class="fleet-boat-name">Pershing 64</div>
             <ul class="fleet-amenities">
-              <li>Captain included</li>
+              <li>Captain available</li>
               <li>Water</li>
               <li>Ice &amp; coolers</li>
               <li>Sodas</li>
@@ -1280,10 +1293,12 @@
               <div class="fleet-price-box">
                 <div class="fleet-price-duration">4 Hours</div>
                 <div class="fleet-price-amount">$2,800</div>
+                <div class="fleet-price-breakdown">Bareboat: $2,500<br>+ Captain $75/hr</div>
               </div>
               <div class="fleet-price-box">
                 <div class="fleet-price-duration">6 Hours</div>
                 <div class="fleet-price-amount">$3,400</div>
+                <div class="fleet-price-breakdown">Bareboat: $2,950<br>+ Captain $75/hr</div>
               </div>
             </div>
             <p class="fleet-deposit-premium">$1,000 deposit to reserve online</p>
@@ -1385,7 +1400,7 @@
             <svg width="16" height="12" viewBox="0 0 16 12"><polygon points="0,0 16,0 16,12" fill="#B8922A"/><polygon points="0,0 0,12 16,12" fill="#1e3a6e"/></svg>
           </div>
         </div>
-        <p class="f-brand-p" data-i18n="footer_brand_p">Private yacht charter in Miami. Curated experiences on the water for those who seek the exceptional.</p>
+        <p class="f-brand-p" data-i18n="footer_brand_p">Bareboat yacht charter in Miami. Curated experiences on the water for those who seek the exceptional.</p>
       </div>
       <div class="f-col">
         <h4 data-i18n="footer_nav_title">Navigate</h4>
@@ -1547,12 +1562,14 @@
           <div class="reserve-pkg-label">4 Hours</div>
           <div class="reserve-pkg-price">$2,800</div>
           <div class="reserve-pkg-unit">total</div>
+          <div class="reserve-pkg-breakdown">Bareboat rate: $2,500 + Captain: $75/hr</div>
           <div class="reserve-pkg-detail">$1,000 deposit now + $1,800 on day of charter</div>
         </div>
         <div class="reserve-pkg selected" id="pershingPkg6hr" onclick="selectPershingPkg('6hr')">
           <div class="reserve-pkg-label">6 Hours</div>
           <div class="reserve-pkg-price">$3,400</div>
           <div class="reserve-pkg-unit">total</div>
+          <div class="reserve-pkg-breakdown">Bareboat rate: $2,950 + Captain: $75/hr</div>
           <div class="reserve-pkg-detail">$1,000 deposit now + $2,400 on day of charter</div>
         </div>
       </div>
@@ -1744,12 +1761,14 @@
           <div class="reserve-pkg-label">4 Hours</div>
           <div class="reserve-pkg-price">$700</div>
           <div class="reserve-pkg-unit">total</div>
+          <div class="reserve-pkg-breakdown">Bareboat rate: $500 + Captain: $50/hr</div>
           <div class="reserve-pkg-detail">$300 deposit now + $400 on day of charter</div>
         </div>
         <div class="reserve-pkg selected" id="abPkg6hr" onclick="selectAbPkg('6hr')">
           <div class="reserve-pkg-label">6 Hours</div>
           <div class="reserve-pkg-price">$900</div>
           <div class="reserve-pkg-unit">total</div>
+          <div class="reserve-pkg-breakdown">Bareboat rate: $600 + Captain: $50/hr</div>
           <div class="reserve-pkg-detail">$300 deposit now + $600 on day of charter</div>
         </div>
       </div>
@@ -1855,12 +1874,14 @@
           <div class="reserve-pkg-label" data-i18n-html="modal_4hr_label">4 Hours</div>
           <div class="reserve-pkg-price">$800</div>
           <div class="reserve-pkg-unit" data-i18n="modal_unit">total</div>
+          <div class="reserve-pkg-breakdown">Bareboat rate: $600 + Captain: $50/hr</div>
           <div class="reserve-pkg-detail">$300 deposit now + $500 on day of charter</div>
         </div>
         <div class="reserve-pkg selected" id="modalPkg6hr" onclick="selectPkg('6hr')">
           <div class="reserve-pkg-label" data-i18n-html="modal_6hr_label">6 Hours</div>
           <div class="reserve-pkg-price">$1,200</div>
           <div class="reserve-pkg-unit" data-i18n="modal_unit">total</div>
+          <div class="reserve-pkg-breakdown">Bareboat rate: $900 + Captain: $50/hr</div>
           <div class="reserve-pkg-detail">$300 deposit now + $900 on day of charter</div>
         </div>
       </div>

@@ -11,8 +11,8 @@ var PIENEZZA_TRANSLATIONS = {
     nav_reserve:        'Reserve Now',
     nav_reserve_mobile: 'Reserve',
 
-    hero_tag:           'Miami River · Private Charter',
-    hero_h1:            'Private<br><em>Charter</em>',
+    hero_tag:           'Miami River · Bareboat Charter',
+    hero_h1:            'Bareboat<br><em>Charter</em>',
     hero_h2:            'dal mare \u2014 from the sea',
     hero_cta_book:      'Book Your Charter',
     hero_cta_explore:   'Explore the Yacht',
@@ -55,13 +55,13 @@ var PIENEZZA_TRANSLATIONS = {
 
     rates_eyebrow:      'Pricing',
     rates_h2:           'Simple, <em>transparent</em>',
-    rates_sub:          'Captain included. No hidden fees. Up to <span class="numeric-font">13</span> guests.',
+    rates_sub:          'Captain available. No hidden fees. Up to <span class="numeric-font">13</span> guests.',
     rate_tag:           'Charter',
     rate_4hr_name:      '<span class="numeric-font">4</span> Hours',
     rate_6hr_name:      '<span class="numeric-font">6</span> Hours',
     rate_unit:          'flat rate',
     rate_li_guests:     'Up to <span class="numeric-font">13</span> guests',
-    rate_li_captain:    'Captain included',
+    rate_li_captain:    'Captain available',
     rate_li_ice:        'Ice & coolers',
     rate_li_sound:      'Sound system',
     rate_reserve_btn:   'Reserve',
@@ -102,7 +102,7 @@ var PIENEZZA_TRANSLATIONS = {
     form_submit:        'Send Inquiry',
     form_note:          'We respond within <span class="numeric-font">24</span> hours \u00b7 No commitment required',
 
-    footer_brand_p:     'Private yacht charter in Miami. Curated experiences on the water for those who seek the exceptional.',
+    footer_brand_p:     'Bareboat yacht charter in Miami. Curated experiences on the water for those who seek the exceptional.',
     footer_nav_title:   'Navigate',
     footer_exp_title:   'Experiences',
     footer_contact_title:'Contact',
@@ -118,7 +118,7 @@ var PIENEZZA_TRANSLATIONS = {
 
     modal_eyebrow:      'Reserve Your Charter',
     modal_title:        'Choose your<br><em>experience</em>',
-    modal_sub:          'Miami River \u00b7 Up to <span class="numeric-font">13</span> guests \u00b7 Captain included',
+    modal_sub:          'Miami River \u00b7 Up to <span class="numeric-font">13</span> guests \u00b7 Captain available',
     modal_4hr_label:    '<span class="numeric-font">4</span> Hours',
     modal_6hr_label:    '<span class="numeric-font">6</span> Hours',
     modal_unit:         'flat rate',
@@ -141,8 +141,8 @@ var PIENEZZA_TRANSLATIONS = {
     nav_reserve:        'Reservar Ahora',
     nav_reserve_mobile: 'Reservar',
 
-    hero_tag:           'Miami River \u00b7 Ch\u00e1rter Privado',
-    hero_h1:            'Ch\u00e1rter<br><em>Privado</em>',
+    hero_tag:           'Miami River \u00b7 Ch\u00e1rter Bareboat',
+    hero_h1:            'Ch\u00e1rter<br><em>Bareboat</em>',
     hero_h2:            'dal mare \u2014 del mar',
     hero_cta_book:      'Reserva tu Ch\u00e1rter',
     hero_cta_explore:   'Explorar el Yate',
@@ -185,13 +185,13 @@ var PIENEZZA_TRANSLATIONS = {
 
     rates_eyebrow:      'Tarifas',
     rates_h2:           'Simple, <em>transparente</em>',
-    rates_sub:          'Capit\u00e1n incluido. Sin costos ocultos. Hasta <span class="numeric-font">13</span> invitados.',
+    rates_sub:          'Capit\u00e1n disponible. Sin costos ocultos. Hasta <span class="numeric-font">13</span> invitados.',
     rate_tag:           'Ch\u00e1rter',
     rate_4hr_name:      '<span class="numeric-font">4</span> Horas',
     rate_6hr_name:      '<span class="numeric-font">6</span> Horas',
     rate_unit:          'tarifa fija',
     rate_li_guests:     'Hasta <span class="numeric-font">13</span> invitados',
-    rate_li_captain:    'Capit\u00e1n incluido',
+    rate_li_captain:    'Capit\u00e1n disponible',
     rate_li_ice:        'Hielo y hieleras',
     rate_li_sound:      'Sistema de sonido',
     rate_reserve_btn:   'Reservar',
@@ -232,7 +232,7 @@ var PIENEZZA_TRANSLATIONS = {
     form_submit:        'Enviar Consulta',
     form_note:          'Respondemos en <span class="numeric-font">24</span> horas \u00b7 Sin compromiso',
 
-    footer_brand_p:     'Ch\u00e1rter privado de yate en Miami. Experiencias curadas en el agua para quienes buscan lo excepcional.',
+    footer_brand_p:     'Ch\u00e1rter bareboat de yate en Miami. Experiencias curadas en el agua para quienes buscan lo excepcional.',
     footer_nav_title:   'Navegar',
     footer_exp_title:   'Experiencias',
     footer_contact_title:'Contacto',
@@ -248,7 +248,7 @@ var PIENEZZA_TRANSLATIONS = {
 
     modal_eyebrow:      'Reserva tu Ch\u00e1rter',
     modal_title:        'Elige tu<br><em>experiencia</em>',
-    modal_sub:          'Miami River \u00b7 Hasta <span class="numeric-font">13</span> invitados \u00b7 Capit\u00e1n incluido',
+    modal_sub:          'Miami River \u00b7 Hasta <span class="numeric-font">13</span> invitados \u00b7 Capit\u00e1n disponible',
     modal_4hr_label:    '<span class="numeric-font">4</span> Horas',
     modal_6hr_label:    '<span class="numeric-font">6</span> Horas',
     modal_unit:         'tarifa fija',
@@ -281,8 +281,8 @@ var PIENEZZA_TRANSLATIONS = {
 
     // Update page title
     document.title = lang === 'es'
-      ? 'Pienezza Yacht \u2014 Ch\u00e1rter Privado \u00b7 Miami'
-      : 'Pienezza Yacht \u2014 Private Charter \u00b7 Miami';
+      ? 'Pienezza Yacht \u2014 Ch\u00e1rter Bareboat \u00b7 Miami'
+      : 'Pienezza Yacht \u2014 Bareboat Charter \u00b7 Miami';
 
     // Plain text nodes
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
