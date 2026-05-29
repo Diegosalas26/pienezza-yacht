@@ -641,6 +641,31 @@
     }
     .t-dot.on { background: var(--gold); transform: scale(1.5); }
 
+    .reviews-h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(34px, 4.4vw, 56px); color: var(--navy);
+      margin: 18px 0 8px; letter-spacing: -0.01em;
+    }
+    .reviews-h2 em { font-style: italic; color: var(--gold); }
+    .reviews-sub {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(16px, 1.8vw, 20px); color: rgba(14,28,54,0.7);
+      margin-bottom: 48px;
+    }
+    .featurable-wrapper {
+      max-width: 1100px; margin: 0 auto 48px;
+      min-height: 220px;
+    }
+    .reviews-cta {
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 16px 32px; background: var(--navy); color: var(--cream);
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      font-weight: 500; text-decoration: none; border-radius: 2px;
+      transition: background 300ms var(--ease), transform 300ms var(--ease-spring);
+    }
+    .reviews-cta:hover { background: #1a2a4a; transform: translateY(-2px); }
+    .reviews-cta svg { width: 14px; height: 14px; stroke: currentColor; }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--navy); color: var(--cream); padding: 72px 56px 40px;
@@ -905,6 +930,7 @@
       .reserve-pkg-price { font-size: 34px; }
     }
   </style>
+  <script src="https://featurable.com/assets/bundle.js" defer charset="UTF-8"></script>
 </head>
 <body>
 
@@ -1315,15 +1341,12 @@
   <!-- TESTIMONIALS -->
   <section class="testimonial">
     <span class="eyebrow reveal" style="justify-content:center;" data-i18n="testimonials_eyebrow">Guest Reviews</span>
-    <div class="t-inner reveal d1">
-      <p class="t-q" id="tQ">Absolutely incredible experience. The boat was immaculate, the captain professional, and the Miami sunset was something we will never forget.</p>
-      <p class="t-author" id="tA">— Maria &amp; Carlos · Miami Beach</p>
-      <div class="t-dots">
-        <div class="t-dot on" onclick="goT(0)"></div>
-        <div class="t-dot" onclick="goT(1)"></div>
-        <div class="t-dot" onclick="goT(2)"></div>
-      </div>
+    <h2 class="reviews-h2 reveal d1" data-i18n-html="reviews_h2">What our <em>guests</em> say</h2>
+    <p class="reviews-sub reveal d2" data-i18n="reviews_sub">Real reviews from Google</p>
+    <div class="featurable-wrapper reveal d3">
+      <div id="featurable-e45ce73d-1d77-4a6e-8704-62d4f883ce15" data-featurable-async></div>
     </div>
+    <a href="https://g.page/r/CZW-XFblU29qEBM/review" target="_blank" rel="noopener" class="reviews-cta reveal d4" data-i18n="reviews_cta">Leave us a Google review</a>
   </section>
 
   <!-- BOOKING -->
@@ -1469,24 +1492,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
     document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
     document.querySelectorAll('.hero .reveal').forEach(function(el, i) { setTimeout(function() { el.classList.add('in'); }, 200 + i*150); });
-
-    // Testimonials — use var so translations.js can access window.ts / window.ct
-    var ts = [
-      { q: 'Absolutely incredible experience. The boat was immaculate, the captain professional, and the Miami sunset was something we will never forget.', a: '— Maria & Carlos · Miami Beach' },
-      { q: 'We celebrated our anniversary on Pienezza and it exceeded every expectation. The atmosphere felt truly elevated, truly special.', a: '— Valentina R. · Brickell' },
-      { q: 'Used Pienezza for a corporate event and our clients were blown away. Professional from first email to docking back. Highly recommend.', a: '— Rafael M. · Coral Gables' }
-    ];
-    var ct = 0;
-    var tQ = document.getElementById('tQ'), tA = document.getElementById('tA');
-    function goT(i) {
-      tQ.classList.add('fading'); tA.classList.add('fading');
-      setTimeout(function() {
-        ct = i; tQ.textContent = ts[i].q; tA.textContent = ts[i].a;
-        tQ.classList.remove('fading'); tA.classList.remove('fading');
-        document.querySelectorAll('.t-dot').forEach(function(d,j) { d.classList.toggle('on', j===i); });
-      }, 360);
-    }
-    setInterval(function() { goT((ct+1) % ts.length); }, 5500);
 
     // Lightbox — use var so translations.js can access window.lbPhotos / window.lbIndex
     var lbPhotos = [

@@ -67,12 +67,9 @@ var PIENEZZA_TRANSLATIONS = {
     rate_reserve_btn:   'Reserve',
 
     testimonials_eyebrow: 'Guest Reviews',
-    t1_q: 'Absolutely incredible experience. The boat was immaculate, the captain professional, and the Miami sunset was something we will never forget.',
-    t1_a: '\u2014 Maria & Carlos \u00b7 Miami Beach',
-    t2_q: 'We celebrated our anniversary on Pienezza and it exceeded every expectation. The atmosphere felt truly elevated, truly special.',
-    t2_a: '\u2014 Valentina R. \u00b7 Brickell',
-    t3_q: 'Used Pienezza for a corporate event and our clients were blown away. Professional from first email to docking back. Highly recommend.',
-    t3_a: '\u2014 Rafael M. \u00b7 Coral Gables',
+    reviews_h2:           'What our <em>guests</em> say',
+    reviews_sub:          'Real reviews from Google',
+    reviews_cta:          'Leave us a Google review',
 
     booking_eyebrow:    'Reserve',
     booking_h2:         'Plan your<br><em>escape</em>',
@@ -197,12 +194,9 @@ var PIENEZZA_TRANSLATIONS = {
     rate_reserve_btn:   'Reservar',
 
     testimonials_eyebrow: 'Rese\u00f1as',
-    t1_q: 'Una experiencia absolutamente incre\u00edble. El barco estaba impecable, el capit\u00e1n muy profesional, y el atardecer en Miami fue algo que jam\u00e1s olvidaremos.',
-    t1_a: '\u2014 Mar\u00eda & Carlos \u00b7 Miami Beach',
-    t2_q: 'Celebramos nuestro aniversario en Pienezza y super\u00f3 todas las expectativas. La atm\u00f3sfera se sinti\u00f3 verdaderamente especial y elevada.',
-    t2_a: '\u2014 Valentina R. \u00b7 Brickell',
-    t3_q: 'Usamos Pienezza para un evento corporativo y nuestros clientes quedaron impresionados. Profesional desde el primer correo hasta el regreso al muelle.',
-    t3_a: '\u2014 Rafael M. \u00b7 Coral Gables',
+    reviews_h2:           'Lo que dicen nuestros <em>hu\u00e9spedes</em>',
+    reviews_sub:          'Rese\u00f1as reales de Google',
+    reviews_cta:          'D\u00e9janos una rese\u00f1a en Google',
 
     booking_eyebrow:    'Reservar',
     booking_h2:         'Planifica tu<br><em>escapada</em>',
@@ -307,18 +301,6 @@ var PIENEZZA_TRANSLATIONS = {
       var key = el.getAttribute('data-i18n-option');
       if (t[key] !== undefined) el.textContent = t[key];
     });
-
-    // Testimonials — update the live array and current slide
-    if (window.ts) {
-      window.ts[0] = { q: t.t1_q, a: t.t1_a };
-      window.ts[1] = { q: t.t2_q, a: t.t2_a };
-      window.ts[2] = { q: t.t3_q, a: t.t3_a };
-      var idx = window.ct || 0;
-      var tQel = document.getElementById('tQ');
-      var tAel = document.getElementById('tA');
-      if (tQel) tQel.textContent = window.ts[idx].q;
-      if (tAel) tAel.textContent = window.ts[idx].a;
-    }
 
     // Lightbox captions — update array; refresh caption if lightbox is open
     if (window.lbPhotos) {
