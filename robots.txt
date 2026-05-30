@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /SETUP_TUESDAY.md
+Disallow: /TESTING.md
+Disallow: /GOOGLE_VERIFICATION_VIDEO_SCRIPT.md
+Disallow: /business-card/
+Disallow: /*.pdf$
+
+Sitemap: https://pienezzayacht.com/sitemap.xml

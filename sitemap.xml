@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://pienezzayacht.com/</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://pienezzayacht.com/images/pienezza-hero-final.jpeg</image:loc>
+      <image:title>Pienezza Yacht cruising Biscayne Bay Miami</image:title>
+      <image:caption>Private yacht charter in Miami departing from Miami River</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pienezzayacht.com/images/pienezza-aerial-party.jpeg</image:loc>
+      <image:title>Pienezza Yacht aerial view with guests</image:title>
+      <image:caption>Up to 13 guests private charter in Miami</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pienezzayacht.com/images/pienezza-cruising.jpeg</image:loc>
+      <image:title>Pienezza Yacht cruising Miami waters</image:title>
+      <image:caption>Yacht charter cruising to Monument Island Star Island Key Biscayne</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pienezzayacht.com/images/pienezza-night.jpeg</image:loc>
+      <image:title>Pienezza Yacht night charter Miami</image:title>
+      <image:caption>Sunset and night yacht charter in Biscayne Bay</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pienezzayacht.com/images/interior-salon-real.jpg</image:loc>
+      <image:title>Pienezza Yacht interior salon</image:title>
+      <image:caption>Spacious yacht interior salon for private charters</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pienezzayacht.com/images/interior-helm.jpeg</image:loc>
+      <image:title>Pienezza Yacht helm and navigation</image:title>
+      <image:caption>Captain helm and navigation equipment</image:caption>
+    </image:image>
+  </url>
+</urlset>
