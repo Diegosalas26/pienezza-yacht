@@ -12,7 +12,7 @@ var PIENEZZA_TRANSLATIONS = {
     nav_reserve_mobile: 'Reserve',
 
     hero_tag:           'Miami River · Bareboat Charter',
-    hero_h1:            'Bareboat<br><em>Charter</em>',
+    hero_h1:            'Bareboat<br><em>Charter</em><span class="sr-only"> — Private Yacht Charter in Miami, Florida</span>',
     hero_h2:            'dal mare \u2014 from the sea',
     hero_cta_book:      'Book Your Charter',
     hero_cta_explore:   'Explore the Yacht',
@@ -139,7 +139,7 @@ var PIENEZZA_TRANSLATIONS = {
     nav_reserve_mobile: 'Reservar',
 
     hero_tag:           'Miami River \u00b7 Ch\u00e1rter Bareboat',
-    hero_h1:            'Ch\u00e1rter<br><em>Bareboat</em>',
+    hero_h1:            'Ch\u00e1rter<br><em>Bareboat</em><span class="sr-only"> \u2014 Alquiler de Yate Privado en Miami, Florida</span>',
     hero_h2:            'dal mare \u2014 del mar',
     hero_cta_book:      'Reserva tu Ch\u00e1rter',
     hero_cta_explore:   'Explorar el Yate',
