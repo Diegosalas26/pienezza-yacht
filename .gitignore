@@ -1,0 +1,22 @@
+# Basura de macOS
+.DS_Store
+
+# Videos crudos: pesan cientos de MB y no van al sitio
+*.MOV
+*.mov
+*.mp4
+*.m4v
+
+# Material interno de trabajo, no es parte del sitio publico
+business-card/
+pienezza-qr-codes.pdf
+Pienezza Yacht — Propuestas de Logo.pdf
+logo con ancla.png
+GOOGLE_VERIFICATION_VIDEO_SCRIPT.md
+REVIEW_REQUEST_TEMPLATES.md
+
+# Fotos crudas sin procesar y renders de prueba, ninguna la usa el sitio
+images/pershing/
+images/Photo *
+images/seaRay-*
+images/qr-*
