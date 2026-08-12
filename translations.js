@@ -128,6 +128,7 @@ var PIENEZZA_TRANSLATIONS = {
     alert_stripe:       'Booking confirmed in Calendly! Online payment will be activated after setup.',
 
     whatsapp_message:   "Hi! I'd like to book a charter on Pienezza Yacht",
+    wa_float:           'Chat with us',
   },
 
   es: {
@@ -255,6 +256,7 @@ var PIENEZZA_TRANSLATIONS = {
     alert_stripe:       '\u00a1Reserva confirmada en Calendly! El pago en l\u00ednea se activar\u00e1 despu\u00e9s de la configuraci\u00f3n.',
 
     whatsapp_message:   '\u00a1Hola! Me gustar\u00eda reservar un ch\u00e1rter en Pienezza Yacht',
+    wa_float:           'Escr\u00edbenos',
   }
 };
 
@@ -315,9 +317,10 @@ var PIENEZZA_TRANSLATIONS = {
     }
 
     // WhatsApp message in config
-    if (window.PIENEZZA_CONFIG) {
+    if (typeof PIENEZZA_CONFIG !== 'undefined') {
       PIENEZZA_CONFIG.whatsappMessage = t.whatsapp_message;
       if (typeof actualizarBtnWhatsApp === 'function') actualizarBtnWhatsApp();
+      if (typeof actualizarWaFloat === 'function') actualizarWaFloat();
     }
 
     // Form subject hidden field
